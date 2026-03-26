@@ -31,7 +31,7 @@ const Index = () => {
       {/* Logo */}
       <div className="animate-fade-in-up mb-2">
         <img
-          src="/lovable-uploads/a9346dcf-debc-4929-847d-6e05b5bcd48d.png"
+          src="/lovable-uploads/fcf9fc5b-331b-4bca-9b23-23ba236493d6.png"
           alt="Lavanderia Lavoura"
           width={180}
           height={180}
