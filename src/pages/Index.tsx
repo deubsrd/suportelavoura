@@ -41,25 +41,12 @@ const Index = () => {
 
       {/* Subtitle */}
       <div
-        className="animate-fade-in-up mb-2 flex items-center gap-2 text-muted-foreground text-sm"
+        className="animate-fade-in-up mb-8 flex items-center gap-2 text-muted-foreground text-sm"
         style={{ animationDelay: "0.1s", opacity: 0 }}
       >
         <Clock className="h-4 w-4 text-accent" />
         Funcionamento 24 horas
       </div>
-
-      <h1
-        className="font-serif-display animate-fade-in-up mb-1 text-center text-2xl text-foreground"
-        style={{ animationDelay: "0.15s", opacity: 0 }}
-      >
-        ​
-      </h1>
-      <p
-        className="animate-fade-in-up mb-10 text-center text-sm text-muted-foreground"
-        style={{ animationDelay: "0.2s", opacity: 0 }}
-      >
-        ​
-      </p>
 
       {/* Links */}
       <div className="flex w-full max-w-md flex-col gap-4">
