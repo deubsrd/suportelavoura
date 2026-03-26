@@ -1,16 +1,101 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { MapPin, Headphones, Building2, Clock } from "lucide-react";
+import lavouraLogo from "@/assets/lavoura-logo.png";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const links = [
+  {
+    label: "Seja um Franqueado",
+    href: "https://lavanderialavoura.lovable.app/",
+    icon: Building2,
+    highlight: true,
+  },
+  {
+    label: "Unidade Liberdade",
+    href: "#",
+    icon: MapPin,
+  },
+  {
+    label: "Unidade Jardim Primavera",
+    href: "#",
+    icon: MapPin,
+  },
+  {
+    label: "Suporte",
+    href: "#",
+    icon: Headphones,
+  },
+];
+
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="flex min-h-screen flex-col items-center justify-start bg-background px-4 py-12">
+      {/* Logo */}
+      <div className="animate-fade-in-up mb-2">
+        <img
+          src={lavouraLogo}
+          alt="Lavanderia Lavoura"
+          width={180}
+          height={180}
+          className="mx-auto"
+        />
+      </div>
+
+      {/* Subtitle */}
+      <div
+        className="animate-fade-in-up mb-2 flex items-center gap-2 text-muted-foreground text-sm"
+        style={{ animationDelay: "0.1s", opacity: 0 }}
+      >
+        <Clock className="h-4 w-4 text-accent" />
+        Funcionamento 24 horas
+      </div>
+
+      <h1
+        className="font-serif-display animate-fade-in-up mb-1 text-center text-2xl text-foreground"
+        style={{ animationDelay: "0.15s", opacity: 0 }}
+      >
+        Lavanderia Lavoura
+      </h1>
+      <p
+        className="animate-fade-in-up mb-10 text-center text-sm text-muted-foreground"
+        style={{ animationDelay: "0.2s", opacity: 0 }}
+      >
+        Lavanderia de autosserviço
+      </p>
+
+      {/* Links */}
+      <div className="flex w-full max-w-md flex-col gap-4">
+        {links.map((link, i) => {
+          const Icon = link.icon;
+          return (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`animate-fade-in-up ${
+                link.highlight
+                  ? "link-card !border-accent !bg-accent !text-accent-foreground font-semibold"
+                  : "link-card"
+              }`}
+              style={{ animationDelay: `${0.25 + i * 0.1}s`, opacity: 0 }}
+            >
+              <span className="flex items-center justify-center gap-3">
+                <Icon className="h-5 w-5" />
+                {link.label}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+
+      {/* Footer */}
+      <p
+        className="animate-fade-in-up mt-14 text-xs text-muted-foreground"
+        style={{ animationDelay: "0.7s", opacity: 0 }}
+      >
+        © {new Date().getFullYear()} Lavanderia Lavoura
+      </p>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
