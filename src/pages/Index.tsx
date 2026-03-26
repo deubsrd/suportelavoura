@@ -10,17 +10,17 @@ const links = [
   },
   {
     label: "Unidade Liberdade",
-    href: "#",
+    href: "https://maps.app.goo.gl/GtHfM6evjMdkoxm29",
     icon: MapPin,
   },
   {
     label: "Unidade Jardim Primavera",
-    href: "#",
+    href: "https://maps.app.goo.gl/QRqtW4dqMxfeqjT69",
     icon: MapPin,
   },
   {
     label: "Suporte",
-    href: "#",
+    href: "https://wa.me/5595991535738",
     icon: Headphones,
   },
 ];
