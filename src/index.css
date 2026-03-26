@@ -134,4 +134,3 @@ All colors MUST be HSL.
   @apply border-accent bg-secondary scale-[1.02] shadow-lg;
   box-shadow: 0 8px 30px -10px hsl(28 70% 55% / 0.25);
 }
-}
