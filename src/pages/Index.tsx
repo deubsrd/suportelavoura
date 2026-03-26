@@ -1,5 +1,5 @@
 import { MapPin, Headphones, Building2, Clock } from "lucide-react";
-import lavouraLogo from "@/assets/lavoura-logo.png";
+
 
 const links = [
   {
@@ -31,7 +31,7 @@ const Index = () => {
       {/* Logo */}
       <div className="animate-fade-in-up mb-2">
         <img
-          src={lavouraLogo}
+          src="/lovable-uploads/a9346dcf-debc-4929-847d-6e05b5bcd48d.png"
           alt="Lavanderia Lavoura"
           width={180}
           height={180}
@@ -52,13 +52,13 @@ const Index = () => {
         className="font-serif-display animate-fade-in-up mb-1 text-center text-2xl text-foreground"
         style={{ animationDelay: "0.15s", opacity: 0 }}
       >
-        Lavanderia Lavoura
+        ​
       </h1>
       <p
         className="animate-fade-in-up mb-10 text-center text-sm text-muted-foreground"
         style={{ animationDelay: "0.2s", opacity: 0 }}
       >
-        Lavanderia de autosserviço
+        ​
       </p>
 
       {/* Links */}
