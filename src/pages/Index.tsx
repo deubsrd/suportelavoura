@@ -4,7 +4,7 @@ import { MapPin, Headphones, Building2, Clock } from "lucide-react";
 const links = [
   {
     label: "Seja um Franqueado",
-    href: "https://lavanderialavoura.lovable.app/",
+    href: "https://www.lavanderialavoura.com.br/",
     icon: Building2,
     highlight: true,
   },
