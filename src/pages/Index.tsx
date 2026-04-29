@@ -19,6 +19,13 @@ const links = [
     icon: MapPin,
   },
   {
+    label: "Unidade Raiar do Sol",
+    href: "#",
+    icon: MapPin,
+    disabled: true,
+    badge: "Em breve",
+  },
+  {
     label: "Suporte",
     href: "https://wa.me/5595991535738",
     icon: Headphones,
