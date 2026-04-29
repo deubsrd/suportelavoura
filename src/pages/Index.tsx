@@ -59,23 +59,47 @@ const Index = () => {
       <div className="flex w-full max-w-md flex-col gap-4">
         {links.map((link, i) => {
           const Icon = link.icon;
+          const className = `animate-fade-in-up ${
+            link.highlight
+              ? "link-card !border-accent !bg-accent !text-accent-foreground font-semibold"
+              : "link-card"
+          } ${link.disabled ? "opacity-50 cursor-not-allowed pointer-events-none grayscale" : ""}`;
+          const style = { animationDelay: `${0.25 + i * 0.1}s`, opacity: 0 } as React.CSSProperties;
+          const content = (
+            <span className="flex items-center justify-center gap-3">
+              <Icon className="h-5 w-5" />
+              {link.label}
+              {link.badge && (
+                <span className="ml-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                  {link.badge}
+                </span>
+              )}
+            </span>
+          );
+
+          if (link.disabled) {
+            return (
+              <div
+                key={link.label}
+                aria-disabled="true"
+                className={className}
+                style={style}
+              >
+                {content}
+              </div>
+            );
+          }
+
           return (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`animate-fade-in-up ${
-                link.highlight
-                  ? "link-card !border-accent !bg-accent !text-accent-foreground font-semibold"
-                  : "link-card"
-              }`}
-              style={{ animationDelay: `${0.25 + i * 0.1}s`, opacity: 0 }}
+              className={className}
+              style={style}
             >
-              <span className="flex items-center justify-center gap-3">
-                <Icon className="h-5 w-5" />
-                {link.label}
-              </span>
+              {content}
             </a>
           );
         })}
