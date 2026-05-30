@@ -194,8 +194,8 @@ export default function Index() {
           <img
             src="/lovable-uploads/fcf9fc5b-331b-4bca-9b23-23ba236493d6.png"
             alt="Lavanderia Lavoura"
-            width={128}
-            height={128}
+            width={160}
+            height={160}
             className="logo-img"
           />
         </motion.div>
