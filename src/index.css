@@ -1,11 +1,3 @@
-/* src/index.css
-   O que mudou vs. versão anterior:
-   • REMOVIDO @import de fontes Google (agora está no index.html via <link>)
-   • REMOVIDO bloco .dark — dark mode não estava implementado; variáveis ficavam
-     definidas mas nunca ativadas, gerando confusão
-   • Mantido tudo o mais sem alteração
-*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,35 +6,24 @@
   :root {
     --background: 160 30% 18%;
     --foreground: 0 0% 96%;
-
     --card: 160 25% 22%;
     --card-foreground: 0 0% 96%;
-
     --popover: 160 25% 22%;
     --popover-foreground: 0 0% 96%;
-
     --primary: 28 70% 55%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 160 20% 28%;
     --secondary-foreground: 0 0% 96%;
-
     --muted: 160 15% 25%;
     --muted-foreground: 150 10% 65%;
-
     --accent: 28 70% 55%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-
     --border: 160 15% 30%;
     --input: 160 15% 30%;
     --ring: 28 70% 55%;
-
     --radius: 0.75rem;
-
-    /* sidebar vars — necessários para shadcn/ui não quebrar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -55,40 +36,234 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
+  * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
   }
 }
 
-.font-serif-display {
+/* ── Página ─────────────────────────────────────────────────── */
+.page-root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: hsl(160 30% 18%);
+  padding-bottom: 2.5rem;
+}
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero-section {
+  width: 100%;
+  background: hsl(160 25% 24%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-circles { position: absolute; inset: 0; pointer-events: none; }
+.hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(253,253,253,.05);
+}
+.hero-circle-1 { width: 260px; height: 260px; top: -100px; right: -70px; }
+.hero-circle-2 { width: 160px; height: 160px; bottom: -60px; left: -40px; }
+
+.logo-wrap {
+  width: 72px;
+  height: 72px;
+  background: hsl(160 30% 18%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1.5px solid hsl(160 20% 28%);
+  position: relative;
+  z-index: 2;
+}
+.logo-img { width: 48px; height: 48px; object-fit: contain; }
+
+/* ── Hero word rotativo ─────────────────────────────────────── */
+.hero-word-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-static {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(253,253,253,.6);
+  letter-spacing: .02em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.hero-word-slot {
+  display: block;
+  height: 2.2rem;
+  overflow: hidden;
+  position: relative;
+  min-width: 180px;
+  text-align: center;
+}
+
+.hero-word {
+  display: block;
   font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1.75rem;
+  color: hsl(28 70% 55%);
+  text-align: center;
+  line-height: 1.25;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hero-dots {
+  display: flex;
+  gap: 5px;
+  margin-top: 14px;
+}
+.hero-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(253,253,253,.2);
+  transition: width .3s ease, background .3s ease;
+  border-radius: 3px;
+}
+.hero-dot-active {
+  width: 14px;
+  background: hsl(28 70% 55%);
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+/* ── Status badge ───────────────────────────────────────────── */
+.hero-status {
+  margin-top: 1rem;
+  font-size: .7rem;
+  color: rgba(253,253,253,.4);
+  letter-spacing: .07em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  z-index: 2;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .4; transform: scale(.75); }
 }
 
-.link-card {
-  @apply block w-full rounded-lg border border-border bg-card px-6 py-4 text-center text-foreground transition-all duration-300;
+/* ── Links section ──────────────────────────────────────────── */
+.links-section {
+  width: 100%;
+  max-width: 420px;
+  padding: 1.25rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.link-card:hover {
-  @apply border-accent bg-secondary scale-[1.02] shadow-lg;
-  box-shadow: 0 8px 30px -10px hsl(28 70% 55% / 0.25);
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Link cards ─────────────────────────────────────────────── */
+.link-card-v2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  animation: rise-in .55s ease forwards;
+  will-change: transform;
+}
+
+.link-card-cta {
+  background: hsl(28 70% 55%);
+  color: #fff;
+}
+.link-card-default {
+  background: hsl(160 25% 24%);
+  color: hsl(0 0% 96%);
+  border: 1px solid hsl(160 20% 30%);
+}
+.link-card-wa {
+  background: hsl(160 35% 16%);
+  color: hsl(0 0% 96%);
+  border: 1px solid hsl(145 40% 22%);
+}
+.link-card-disabled {
+  background: hsl(160 22% 20%);
+  color: hsl(150 15% 45%);
+  border: 1px solid hsl(160 18% 24%);
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.lc-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.link-card-wa .lc-icon {
+  background: rgba(37,211,102,.12);
+}
+.lc-label {
+  flex: 1;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
+.lc-arrow {
+  font-size: .9rem;
+  opacity: .4;
+}
+.link-card-cta .lc-arrow { opacity: .75; }
+.link-card-wa .lc-arrow  { color: #25d366; opacity: 1; }
+
+.lc-badge {
+  font-size: .625rem;
+  font-weight: 600;
+  background: rgba(255,255,255,.1);
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.page-footer {
+  margin-top: 2rem;
+  font-size: .7rem;
+  color: hsl(150 12% 35%);
+  letter-spacing: .04em;
 }

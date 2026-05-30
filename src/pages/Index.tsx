@@ -1,13 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// src/pages/Index.tsx
-// O que mudou vs. versão anterior:
-//   • Links vêm de src/data/links.config.ts (não mais hardcoded aqui)
-//   • trackLinkClick() e trackPageView() chamados via src/data/analytics.ts
-//   • Ícones mapeados internamente — sem importar todos de uma vez
-//   • NotFound localizado (pt-BR)
-// ─────────────────────────────────────────────────────────────────────────────
-
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Headphones, Building2 } from "lucide-react";
 import { links, type LinkItem } from "@/data/links.config";
 import { trackLinkClick, trackPageView } from "@/data/analytics";
@@ -18,101 +10,163 @@ const iconMap = {
   support: Headphones,
 } as const;
 
+const HERO_WORDS = ["café", "brinquedoteca", "coworking", "carinho", "conforto", "experiência"];
+
+function HeroWord() {
+  const words = useMemo(() => HERO_WORDS, []);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setIndex((i) => (i + 1) % words.length);
+    }, 2200);
+    return () => clearTimeout(id);
+  }, [index, words]);
+
+  return (
+    <div className="hero-word-row">
+      <span className="hero-static">Lavoura tem</span>
+      <span className="hero-word-slot" aria-live="polite">
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={words[index]}
+            className="hero-word"
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -32 }}
+            transition={{ type: "spring", stiffness: 60, damping: 14 }}
+          >
+            {words[index]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+      <div className="hero-dots">
+        {words.map((_, i) => (
+          <span key={i} className={`hero-dot${i === index ? " hero-dot-active" : ""}`} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function LinkCard({ link, index }: { link: LinkItem; index: number }) {
   const Icon = iconMap[link.icon];
 
-  const className = [
-    "animate-fade-in-up",
-    link.highlight
-      ? "link-card !border-accent !bg-accent !text-accent-foreground font-semibold"
-      : "link-card",
-    link.disabled ? "opacity-50 cursor-not-allowed pointer-events-none grayscale" : "",
+  const isWa = link.trackingId === "suporte_whatsapp";
+
+  const cardClass = [
+    "link-card-v2",
+    link.highlight ? "link-card-cta" : isWa ? "link-card-wa" : "link-card-default",
+    link.disabled ? "link-card-disabled" : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   const style = {
-    animationDelay: `${0.25 + index * 0.1}s`,
+    animationDelay: `${0.18 + index * 0.09}s`,
     opacity: 0,
   } as React.CSSProperties;
 
   const content = (
-    <span className="flex items-center justify-center gap-3">
-      <Icon className="h-5 w-5" aria-hidden="true" />
-      {link.label}
-      {link.badge && (
-        <span className="ml-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-          {link.badge}
-        </span>
+    <>
+      <span className="lc-icon" aria-hidden="true">
+        <Icon className="h-[18px] w-[18px]" />
+      </span>
+      <span className="lc-label">{link.label}</span>
+      {link.badge ? (
+        <span className="lc-badge">{link.badge}</span>
+      ) : (
+        <span className="lc-arrow" aria-hidden="true">↗</span>
       )}
-    </span>
+    </>
   );
 
   if (link.disabled) {
     return (
-      <div key={link.label} aria-disabled="true" className={className} style={style}>
+      <div aria-disabled="true" className={cardClass} style={style}>
         {content}
       </div>
     );
   }
 
   return (
-    <a
+    <motion.a
       href={link.href}
       target="_blank"
       rel="noopener noreferrer"
-      className={className}
+      className={cardClass}
       style={style}
       onClick={() => trackLinkClick(link.trackingId, link.label)}
+      whileHover={{ scale: 1.035, y: -2 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 340, damping: 20 }}
     >
       {content}
-    </a>
+    </motion.a>
   );
 }
 
-const Index = () => {
+export default function Index() {
   useEffect(() => {
     trackPageView();
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-start bg-background px-4 py-12">
-      {/* Logo */}
-      <div className="animate-fade-in-up mb-2">
-        <img
-          src="/lovable-uploads/fcf9fc5b-331b-4bca-9b23-23ba236493d6.png"
-          alt="Lavanderia Lavoura"
-          width={180}
-          height={180}
-          className="mx-auto"
-        />
+    <div className="page-root">
+      <div className="hero-section">
+        <div className="hero-circles" aria-hidden="true">
+          <span className="hero-circle hero-circle-1" />
+          <span className="hero-circle hero-circle-2" />
+        </div>
+
+        <motion.div
+          className="logo-wrap"
+          initial={{ scale: 0.7, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.05 }}
+        >
+          <img
+            src="/lovable-uploads/fcf9fc5b-331b-4bca-9b23-23ba236493d6.png"
+            alt="Lavanderia Lavoura"
+            width={64}
+            height={64}
+            className="logo-img"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+        >
+          <HeroWord />
+        </motion.div>
+
+        <motion.div
+          className="hero-status"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35, duration: 0.5 }}
+        >
+          <span className="status-dot" aria-hidden="true" />
+          24h · aberto agora
+        </motion.div>
       </div>
 
-      {/* Subtítulo */}
-      <div
-        className="animate-fade-in-up mb-8 flex items-center gap-2 text-muted-foreground text-sm"
-        style={{ animationDelay: "0.1s", opacity: 0 }}
-      >
-        <span aria-hidden="true">🕐</span>
-        Funcionamento 24 horas
-      </div>
-
-      {/* Links */}
-      <div className="flex w-full max-w-md flex-col gap-4">
+      <div className="links-section">
         {links.map((link, i) => (
           <LinkCard key={link.trackingId} link={link} index={i} />
         ))}
       </div>
 
-      {/* Footer */}
-      <p
-        className="animate-fade-in-up mt-14 text-xs text-muted-foreground"
-        style={{ animationDelay: "0.7s", opacity: 0 }}
+      <motion.p
+        className="page-footer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.9 }}
       >
         © {new Date().getFullYear()} Lavanderia Lavoura
-      </p>
+      </motion.p>
     </div>
   );
-};
-
-export default Index;
+}
