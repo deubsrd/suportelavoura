@@ -26,6 +26,13 @@ const links = [
     badge: "Em breve",
   },
   {
+    label: "Unidade Caimbé",
+    href: "#",
+    icon: MapPin,
+    disabled: true,
+    badge: "Em breve",
+  },
+  {
     label: "Suporte",
     href: "https://wa.me/5595991535738",
     icon: Headphones,
