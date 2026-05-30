@@ -96,7 +96,7 @@ function HeroWord() {
 
   return (
     <div className="hero-word-row">
-      <span className="hero-static">Lavoura tem</span>
+      <span className="hero-static">Aqui tem</span>
       <span className="hero-word-slot" aria-live="polite">
         <AnimatePresence mode="wait">
           <motion.span
