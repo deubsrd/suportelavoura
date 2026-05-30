@@ -1,45 +1,80 @@
-import { MapPin, Headphones, Building2, Clock } from "lucide-react";
+// ─────────────────────────────────────────────────────────────────────────────
+// src/pages/Index.tsx
+// O que mudou vs. versão anterior:
+//   • Links vêm de src/data/links.config.ts (não mais hardcoded aqui)
+//   • trackLinkClick() e trackPageView() chamados via src/data/analytics.ts
+//   • Ícones mapeados internamente — sem importar todos de uma vez
+//   • NotFound localizado (pt-BR)
+// ─────────────────────────────────────────────────────────────────────────────
 
+import { useEffect } from "react";
+import { MapPin, Headphones, Building2 } from "lucide-react";
+import { links, type LinkItem } from "@/data/links.config";
+import { trackLinkClick, trackPageView } from "@/data/analytics";
 
-const links = [
-  {
-    label: "Seja um Franqueado",
-    href: "https://www.lavanderialavoura.com.br/",
-    icon: Building2,
-    highlight: true,
-  },
-  {
-    label: "Unidade Liberdade",
-    href: "https://maps.app.goo.gl/GtHfM6evjMdkoxm29",
-    icon: MapPin,
-  },
-  {
-    label: "Unidade Jardim Primavera",
-    href: "https://maps.app.goo.gl/QRqtW4dqMxfeqjT69",
-    icon: MapPin,
-  },
-  {
-    label: "Unidade Raiar do Sol",
-    href: "#",
-    icon: MapPin,
-    disabled: true,
-    badge: "Em breve",
-  },
-  {
-    label: "Unidade Caimbé",
-    href: "#",
-    icon: MapPin,
-    disabled: true,
-    badge: "Em breve",
-  },
-  {
-    label: "Suporte",
-    href: "https://wa.me/5595991535738",
-    icon: Headphones,
-  },
-];
+const iconMap = {
+  franchise: Building2,
+  map: MapPin,
+  support: Headphones,
+} as const;
+
+function LinkCard({ link, index }: { link: LinkItem; index: number }) {
+  const Icon = iconMap[link.icon];
+
+  const className = [
+    "animate-fade-in-up",
+    link.highlight
+      ? "link-card !border-accent !bg-accent !text-accent-foreground font-semibold"
+      : "link-card",
+    link.disabled ? "opacity-50 cursor-not-allowed pointer-events-none grayscale" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const style = {
+    animationDelay: `${0.25 + index * 0.1}s`,
+    opacity: 0,
+  } as React.CSSProperties;
+
+  const content = (
+    <span className="flex items-center justify-center gap-3">
+      <Icon className="h-5 w-5" aria-hidden="true" />
+      {link.label}
+      {link.badge && (
+        <span className="ml-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          {link.badge}
+        </span>
+      )}
+    </span>
+  );
+
+  if (link.disabled) {
+    return (
+      <div key={link.label} aria-disabled="true" className={className} style={style}>
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={link.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      style={style}
+      onClick={() => trackLinkClick(link.trackingId, link.label)}
+    >
+      {content}
+    </a>
+  );
+}
 
 const Index = () => {
+  useEffect(() => {
+    trackPageView();
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-start bg-background px-4 py-12">
       {/* Logo */}
@@ -53,63 +88,20 @@ const Index = () => {
         />
       </div>
 
-      {/* Subtitle */}
+      {/* Subtítulo */}
       <div
         className="animate-fade-in-up mb-8 flex items-center gap-2 text-muted-foreground text-sm"
         style={{ animationDelay: "0.1s", opacity: 0 }}
       >
-        <Clock className="h-4 w-4 text-accent" />
+        <span aria-hidden="true">🕐</span>
         Funcionamento 24 horas
       </div>
 
       {/* Links */}
       <div className="flex w-full max-w-md flex-col gap-4">
-        {links.map((link, i) => {
-          const Icon = link.icon;
-          const className = `animate-fade-in-up ${
-            link.highlight
-              ? "link-card !border-accent !bg-accent !text-accent-foreground font-semibold"
-              : "link-card"
-          } ${link.disabled ? "opacity-50 cursor-not-allowed pointer-events-none grayscale" : ""}`;
-          const style = { animationDelay: `${0.25 + i * 0.1}s`, opacity: 0 } as React.CSSProperties;
-          const content = (
-            <span className="flex items-center justify-center gap-3">
-              <Icon className="h-5 w-5" />
-              {link.label}
-              {link.badge && (
-                <span className="ml-1 rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                  {link.badge}
-                </span>
-              )}
-            </span>
-          );
-
-          if (link.disabled) {
-            return (
-              <div
-                key={link.label}
-                aria-disabled="true"
-                className={className}
-                style={style}
-              >
-                {content}
-              </div>
-            );
-          }
-
-          return (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={className}
-              style={style}
-            >
-              {content}
-            </a>
-          );
-        })}
+        {links.map((link, i) => (
+          <LinkCard key={link.trackingId} link={link} index={i} />
+        ))}
       </div>
 
       {/* Footer */}

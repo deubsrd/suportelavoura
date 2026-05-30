@@ -3,23 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ─── SEO básico ─────────────────────────────────────────────────── -->
     <title>Lavanderia Lavoura | Links</title>
-    <meta name="description" content="Lavanderia Lavoura - Lavanderia de autosserviço 24h. Encontre nossas unidades e seja um franqueado.">
+    <meta name="description" content="Lavanderia Lavoura — autosserviço 24h em Boa Vista. Encontre nossas unidades ou seja um franqueado." />
     <meta name="author" content="Lavanderia Lavoura" />
 
-    
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ee10cd86-7697-4f83-b423-847a1609e45f/id-preview-2d28f48b--038aa701-e12f-4dfc-b1dc-6b794b52f677.lovable.app-1774567821305.png">
+    <!-- ─── Open Graph (WhatsApp, Facebook, Instagram) ────────────────── -->
+    <!--
+      AÇÃO NECESSÁRIA: crie uma imagem 1200×630px com a identidade da Lavoura
+      e coloque em /public/og-image.jpg. Enquanto isso, o fallback usa o logo.
 
+      Depois de hospedar o domínio definitivo, troque o og:url abaixo.
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lavanderia Lavoura" />
+    <meta property="og:title" content="Lavanderia Lavoura | Links" />
+    <meta property="og:description" content="Lavanderia Lavoura — autosserviço 24h em Boa Vista. Encontre nossas unidades ou seja um franqueado." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- ─── Twitter / X Card ──────────────────────────────────────────── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ee10cd86-7697-4f83-b423-847a1609e45f/id-preview-2d28f48b--038aa701-e12f-4dfc-b1dc-6b794b52f677.lovable.app-1774567821305.png">
-    <meta property="og:title" content="Lavanderia Lavoura | Links">
-  <meta name="twitter:title" content="Lavanderia Lavoura | Links">
-  <meta property="og:description" content="Lavanderia Lavoura - Lavanderia de autosserviço 24h. Encontre nossas unidades e seja um franqueado.">
-  <meta name="twitter:description" content="Lavanderia Lavoura - Lavanderia de autosserviço 24h. Encontre nossas unidades e seja um franqueado.">
-</head>
+    <meta name="twitter:title" content="Lavanderia Lavoura | Links" />
+    <meta name="twitter:description" content="Lavanderia Lavoura — autosserviço 24h em Boa Vista." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- ─── Favicon ───────────────────────────────────────────────────── -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- ─── Fontes: preconnect + preload (mais rápido que @import no CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ─── Meta Pixel ────────────────────────────────────────────────── -->
+    <!--
+      AÇÃO NECESSÁRIA: substitua SEU_PIXEL_ID pelo ID real do seu Pixel.
+      Descomente o bloco abaixo quando estiver pronto para ativar o tracking.
+
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'SEU_PIXEL_ID');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+    -->
+
+    <!-- ─── Google Analytics 4 (opcional) ────────────────────────────── -->
+    <!--
+      AÇÃO NECESSÁRIA: substitua G-XXXXXXXXXX pelo seu Measurement ID.
+      Descomente quando pronto.
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
 
   <body>
     <div id="root"></div>
