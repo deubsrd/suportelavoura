@@ -50,7 +50,7 @@
   flex-direction: column;
   align-items: center;
   background: hsl(160 30% 18%);
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
 }
 
 /* ── Hero ───────────────────────────────────────────────────── */
@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 1.5rem 1.5rem;
+  padding: 0.75rem 1.5rem 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   position: relative;
   z-index: 2;
 }
@@ -95,7 +95,7 @@
 /* garante que o hero-word-row e status fiquem acima do canvas */
 .hero-word-row,
 .hero-status { position: relative; z-index: 2; }
-.logo-img { width: 160px; height: 160px; object-fit: contain; }
+.logo-img { width: 90px; height: 90px; object-fit: contain; }
 
 /* ── Hero word rotativo ─────────────────────────────────────── */
 .hero-word-row {
@@ -113,7 +113,7 @@
   color: rgba(253,253,253,.6);
   letter-spacing: .02em;
   line-height: 1;
-  margin-bottom: 2px;
+  margin-bottom: 0;
 }
 
 .hero-word-slot {
@@ -141,7 +141,7 @@
 .hero-dots {
   display: flex;
   gap: 5px;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 .hero-dot {
   width: 5px;
@@ -158,7 +158,7 @@
 
 /* ── Status badge ───────────────────────────────────────────── */
 .hero-status {
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
   font-size: .7rem;
   color: rgba(253,253,253,.4);
   letter-spacing: .07em;
