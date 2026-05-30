@@ -95,7 +95,7 @@
 /* garante que o hero-word-row e status fiquem acima do canvas */
 .hero-word-row,
 .hero-status { position: relative; z-index: 2; }
-.logo-img { width: 90px; height: 90px; object-fit: contain; }
+.logo-img { width: 160px; height: 160px; object-fit: contain; }
 
 /* ── Hero word rotativo ─────────────────────────────────────── */
 .hero-word-row {
