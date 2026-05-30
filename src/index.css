@@ -75,19 +75,14 @@
 .hero-circle-2 { width: 160px; height: 160px; bottom: -60px; left: -40px; }
 
 .logo-wrap {
-  width: 72px;
-  height: 72px;
-  background: hsl(160 30% 18%);
-  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
-  border: 1.5px solid hsl(160 20% 28%);
+  margin-bottom: 1rem;
   position: relative;
   z-index: 2;
 }
-.logo-img { width: 48px; height: 48px; object-fit: contain; }
+.logo-img { width: 96px; height: 96px; object-fit: contain; }
 
 /* ── Hero word rotativo ─────────────────────────────────────── */
 .hero-word-row {
@@ -100,7 +95,7 @@
 }
 
 .hero-static {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: rgba(253,253,253,.6);
   letter-spacing: .02em;
@@ -110,10 +105,10 @@
 
 .hero-word-slot {
   display: block;
-  height: 2.2rem;
+  height: 2.8rem;
   overflow: hidden;
   position: relative;
-  min-width: 180px;
+  min-width: 220px;
   text-align: center;
 }
 
@@ -121,7 +116,7 @@
   display: block;
   font-family: 'DM Serif Display', serif;
   font-style: italic;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   color: hsl(28 70% 55%);
   text-align: center;
   line-height: 1.25;
