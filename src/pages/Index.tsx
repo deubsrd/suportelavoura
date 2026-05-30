@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Headphones, Building2 } from "lucide-react";
 import { links, type LinkItem } from "@/data/links.config";
@@ -12,14 +12,85 @@ const iconMap = {
 
 const HERO_WORDS = ["café", "brinquedoteca", "coworking", "carinho", "conforto", "experiência"];
 
+/* ── Partículas ─────────────────────────────────────────────── */
+function Particles() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let raf: number;
+    const ORANGE = "225, 124, 76"; // hsl(28 70% 55%) em RGB
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+
+    const pts = Array.from({ length: 32 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.6 + 0.5,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of pts) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ORANGE}, 0.18)`;
+        ctx.fill();
+      }
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x;
+          const dy = pts[i].y - pts[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 70) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(${ORANGE}, ${0.08 * (1 - dist / 70)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="particles-canvas"
+      aria-hidden="true"
+    />
+  );
+}
+
+/* ── Hero word ──────────────────────────────────────────────── */
 function HeroWord() {
   const words = useMemo(() => HERO_WORDS, []);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setTimeout(() => {
-      setIndex((i) => (i + 1) % words.length);
-    }, 2200);
+    const id = setTimeout(() => setIndex((i) => (i + 1) % words.length), 2200);
     return () => clearTimeout(id);
   }, [index, words]);
 
@@ -49,18 +120,16 @@ function HeroWord() {
   );
 }
 
+/* ── Link card ──────────────────────────────────────────────── */
 function LinkCard({ link, index }: { link: LinkItem; index: number }) {
   const Icon = iconMap[link.icon];
-
   const isWa = link.trackingId === "suporte_whatsapp";
 
   const cardClass = [
     "link-card-v2",
     link.highlight ? "link-card-cta" : isWa ? "link-card-wa" : "link-card-default",
     link.disabled ? "link-card-disabled" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  ].filter(Boolean).join(" ");
 
   const style = {
     animationDelay: `${0.18 + index * 0.09}s`,
@@ -82,11 +151,7 @@ function LinkCard({ link, index }: { link: LinkItem; index: number }) {
   );
 
   if (link.disabled) {
-    return (
-      <div aria-disabled="true" className={cardClass} style={style}>
-        {content}
-      </div>
-    );
+    return <div aria-disabled="true" className={cardClass} style={style}>{content}</div>;
   }
 
   return (
@@ -106,14 +171,15 @@ function LinkCard({ link, index }: { link: LinkItem; index: number }) {
   );
 }
 
+/* ── Page ───────────────────────────────────────────────────── */
 export default function Index() {
-  useEffect(() => {
-    trackPageView();
-  }, []);
+  useEffect(() => { trackPageView(); }, []);
 
   return (
     <div className="page-root">
       <div className="hero-section">
+        <Particles />
+
         <div className="hero-circles" aria-hidden="true">
           <span className="hero-circle hero-circle-1" />
           <span className="hero-circle hero-circle-2" />
@@ -128,8 +194,8 @@ export default function Index() {
           <img
             src="/lovable-uploads/fcf9fc5b-331b-4bca-9b23-23ba236493d6.png"
             alt="Lavanderia Lavoura"
-            width={64}
-            height={64}
+            width={96}
+            height={96}
             className="logo-img"
           />
         </motion.div>

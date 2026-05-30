@@ -65,7 +65,16 @@
   overflow: hidden;
 }
 
-.hero-circles { position: absolute; inset: 0; pointer-events: none; }
+.particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-circles { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
 .hero-circle {
   position: absolute;
   border-radius: 50%;
@@ -82,6 +91,10 @@
   position: relative;
   z-index: 2;
 }
+
+/* garante que o hero-word-row e status fiquem acima do canvas */
+.hero-word-row,
+.hero-status { position: relative; z-index: 2; }
 .logo-img { width: 96px; height: 96px; object-fit: contain; }
 
 /* ── Hero word rotativo ─────────────────────────────────────── */
@@ -240,9 +253,21 @@
 .lc-arrow {
   font-size: .9rem;
   opacity: .4;
+  transition: opacity .2s;
 }
-.link-card-cta .lc-arrow { opacity: .75; }
-.link-card-wa .lc-arrow  { color: #25d366; opacity: 1; }
+.link-card-cta .lc-arrow  { opacity: .75; }
+.link-card-wa  .lc-arrow  { color: #25d366; opacity: 1; }
+
+/* hover CSS — desktop e fallback para mobile onde framer não dispara */
+.link-card-v2:not(.link-card-disabled):hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 28px rgba(0,0,0,.28);
+}
+/* active — toque no mobile */
+.link-card-v2:not(.link-card-disabled):active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+}
 
 .lc-badge {
   font-size: .625rem;
