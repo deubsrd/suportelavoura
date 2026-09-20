@@ -3,21 +3,43 @@ import { motion } from "framer-motion";
 
 import { Particles, HeroWord } from "@/components/hub/Hero";
 import { LinkCard, type LinkItem } from "@/components/hub/LinkCard";
+import { CoffeeCard } from "@/components/hub/CoffeeCard";
 import { UnitCard } from "@/components/hub/UnitCard";
-import { FRANCHISE_HREF, units } from "@/data/units.config";
+import { FRANCHISE_HREF, units, type Unit } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
-const franchiseLink: LinkItem = {
-  label: "Seja um Franqueado",
-  href: FRANCHISE_HREF,
-  icon: "franchise",
-  highlight: true,
-  trackingId: "hub_franqueado",
-};
+/* ── Página de uma unidade específica ──────────────────────── */
+export default function UnitPage({ unit }: { unit: Unit }) {
+  useEffect(() => { trackPageView(); }, [unit.slug]);
 
-/* ── Página (hub de unidades) ───────────────────────────────── */
-export default function Index() {
-  useEffect(() => { trackPageView(); }, []);
+  const isOpen = unit.status === "open";
+  const otherUnits = units.filter((u) => u.slug !== unit.slug);
+
+  const unitLinks: LinkItem[] = [
+    {
+      label: "Seja um Franqueado",
+      href: FRANCHISE_HREF,
+      icon: "franchise",
+      highlight: true,
+      trackingId: `${unit.slug}_franqueado`,
+    },
+    ...(isOpen
+      ? [
+          {
+            label: unit.name,
+            href: unit.mapHref,
+            icon: "map" as const,
+            trackingId: `${unit.slug}_mapa`,
+          },
+          {
+            label: "Suporte",
+            href: `https://wa.me/${unit.whatsapp}`,
+            icon: "support" as const,
+            trackingId: `${unit.slug}_suporte_whatsapp`,
+          },
+        ]
+      : []),
+  ];
 
   return (
     <div className="page-root">
@@ -58,15 +80,22 @@ export default function Index() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.35, duration: 0.5 }}
         >
-          <span className="status-dot" aria-hidden="true" />
-          Escolha sua unidade
+          <span className={`status-dot${isOpen ? "" : " status-dot-soon"}`} aria-hidden="true" />
+          {unit.name} · {isOpen ? "aberto agora" : "em breve"}
         </motion.div>
       </div>
 
       <div className="links-section">
-        <LinkCard link={franchiseLink} index={0} />
-        {units.map((unit, i) => (
-          <UnitCard key={unit.slug} unit={unit} index={i + 1} />
+        {unitLinks.map((link, i) => (
+          <LinkCard key={link.trackingId} link={link} index={i} />
+        ))}
+        {isOpen && <CoffeeCard index={unitLinks.length} />}
+      </div>
+
+      <div className="other-units-section">
+        <p className="other-units-heading">Conheça nossas outras unidades</p>
+        {otherUnits.map((u, i) => (
+          <UnitCard key={u.slug} unit={u} index={i} />
         ))}
       </div>
 
