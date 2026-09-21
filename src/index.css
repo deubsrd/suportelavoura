@@ -97,7 +97,7 @@
 .hero-word-row,
 .hero-status { position: relative; z-index: 2; }
 .logo-img { width: 160px; height: 160px; object-fit: contain; }
-.logo-img-horizontal { width: auto; height: 160px; max-width: 100%; }
+.logo-img-horizontal { width: auto; height: 50px; max-width: 100%; }
 
 /* ── Hero word rotativo ─────────────────────────────────────── */
 .hero-word-row {
