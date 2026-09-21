@@ -41,8 +41,8 @@ export default function Franquia() {
           <img
             src="/lovable-uploads/logo-horizontal-verde.svg"
             alt="Lavanderia Lavoura"
-            width={260}
-            height={78}
+            width={534}
+            height={160}
             className="logo-img logo-img-horizontal"
           />
         </motion.div>
