@@ -1,12 +1,27 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Newspaper, ChevronDown } from "lucide-react";
+import { ChevronDown, type LucideIcon } from "lucide-react";
 
 import { trackLinkClick } from "@/data/analytics";
-import type { PressItem } from "@/data/press.config";
 
-/** Card expansível "O que falam sobre nós", com links de matérias na imprensa. */
-export function PressCard({ items, index }: { items: PressItem[]; index: number }) {
+export type ExpandableLinkItem = {
+  label: string;
+  href: string;
+  trackingId: string;
+};
+
+/** Card expansível genérico com uma lista de links externos. */
+export function ExpandableLinksCard({
+  icon: Icon,
+  label,
+  items,
+  index,
+}: {
+  icon: LucideIcon;
+  label: string;
+  items: ExpandableLinkItem[];
+  index: number;
+}) {
   const [open, setOpen] = useState(false);
   const style = {
     animationDelay: `${0.18 + index * 0.09}s`,
@@ -22,9 +37,9 @@ export function PressCard({ items, index }: { items: PressItem[]; index: number 
         aria-expanded={open}
       >
         <span className="lc-icon coffee-icon" aria-hidden="true">
-          <Newspaper className="h-[18px] w-[18px]" />
+          <Icon className="h-[18px] w-[18px]" />
         </span>
-        <span className="lc-label">O que falam sobre nós</span>
+        <span className="lc-label">{label}</span>
         <ChevronDown
           className={`h-4 w-4 coffee-chevron${open ? " coffee-chevron-open" : ""}`}
           aria-hidden="true"

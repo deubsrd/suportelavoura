@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { Newspaper, Instagram } from "lucide-react";
 
 import { Particles, HeroWord } from "@/components/hub/Hero";
 import { LinkCard, type LinkItem } from "@/components/hub/LinkCard";
-import { PressCard } from "@/components/hub/PressCard";
+import { ExpandableLinksCard } from "@/components/hub/ExpandableLinksCard";
 import { FRANCHISE_HREF } from "@/data/units.config";
 import { pressItems } from "@/data/press.config";
+import { instagramItems } from "@/data/instagram.config";
 import { trackPageView } from "@/data/analytics";
 
 const franchiseLink: LinkItem = {
@@ -66,7 +68,8 @@ export default function Franquia() {
 
       <div className="links-section">
         <LinkCard link={franchiseLink} index={0} />
-        <PressCard items={pressItems} index={1} />
+        <ExpandableLinksCard icon={Newspaper} label="O que falam sobre nós" items={pressItems} index={1} />
+        <ExpandableLinksCard icon={Instagram} label="Acompanhe nossas unidades" items={instagramItems} index={2} />
       </div>
 
       <motion.p
