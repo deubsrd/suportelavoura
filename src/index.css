@@ -97,6 +97,7 @@
 .hero-word-row,
 .hero-status { position: relative; z-index: 2; }
 .logo-img { width: 160px; height: 160px; object-fit: contain; }
+.logo-img-horizontal { width: 260px; height: auto; }
 
 /* ── Hero word rotativo ─────────────────────────────────────── */
 .hero-word-row {
@@ -378,4 +379,58 @@
   font-size: .7rem;
   color: hsl(150 12% 35%);
   letter-spacing: .04em;
+}
+
+/* ── Tema claro (página /franquia) ─────────────────────────────
+   Inverte o esquema: fundo predominantemente branco e o que era
+   branco/claro no tema escuro vira verde. ────────────────────── */
+.page-root-light,
+.page-root-light .hero-section {
+  background: #ffffff;
+}
+.page-root-light .hero-circle {
+  border-color: rgba(42, 66, 53, .08);
+}
+.page-root-light .hero-static {
+  color: hsl(160 30% 22% / .55);
+}
+.page-root-light .hero-status {
+  color: hsl(160 30% 22% / .55);
+}
+.page-root-light .link-card-default {
+  background: hsl(160 20% 97%);
+  color: hsl(160 40% 16%);
+  border: 1px solid hsl(160 20% 90%);
+}
+.page-root-light .link-card-default .lc-icon {
+  background: rgba(42, 66, 53, .08);
+}
+.page-root-light .link-card-default .lc-arrow {
+  color: hsl(160 40% 16%);
+  opacity: .5;
+}
+.page-root-light .link-card-v2:not(.link-card-disabled):hover {
+  box-shadow: 0 10px 28px rgba(42, 66, 53, .12);
+}
+.page-root-light .coffee-card {
+  background: hsl(160 20% 97%);
+  color: hsl(160 40% 16%);
+  border: 1px solid hsl(160 20% 90%);
+}
+.page-root-light .coffee-card-body {
+  color: hsl(160 25% 30%);
+  border-top: 1px solid hsl(160 20% 90%);
+}
+.page-root-light .press-link {
+  background: rgba(42, 66, 53, .06);
+  color: hsl(160 40% 16%);
+}
+.page-root-light .press-link:hover {
+  background: rgba(42, 66, 53, .12);
+}
+.page-root-light .other-units-heading {
+  color: hsl(160 30% 22% / .45);
+}
+.page-root-light .page-footer {
+  color: hsl(160 20% 55%);
 }

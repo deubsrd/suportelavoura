@@ -23,7 +23,7 @@ export default function Franquia() {
   useEffect(() => { trackPageView(); }, []);
 
   return (
-    <div className="page-root">
+    <div className="page-root page-root-light">
       <div className="hero-section">
         <Particles />
 
@@ -39,11 +39,11 @@ export default function Franquia() {
           transition={{ type: "spring", stiffness: 80, damping: 14, delay: 0.05 }}
         >
           <img
-            src="/lovable-uploads/fcf9fc5b-331b-4bca-9b23-23ba236493d6.png"
+            src="/lovable-uploads/logo-horizontal-verde.svg"
             alt="Lavanderia Lavoura"
-            width={160}
-            height={160}
-            className="logo-img"
+            width={260}
+            height={78}
+            className="logo-img logo-img-horizontal"
           />
         </motion.div>
 
