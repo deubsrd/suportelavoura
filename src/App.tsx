@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import UnitPage from "./pages/UnitPage.tsx";
+import Franquia from "./pages/Franquia.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { units } from "./data/units.config";
 
@@ -23,6 +24,7 @@ const App = () => (
         {units.map((unit) => (
           <Route key={unit.slug} path={`/${unit.slug}`} element={<UnitPage unit={unit} />} />
         ))}
+        <Route path="/franquia" element={<Franquia />} />
         {/* ADICIONE NOVAS ROTAS ACIMA DESTA LINHA */}
         <Route path="*" element={<NotFound />} />
       </Routes>

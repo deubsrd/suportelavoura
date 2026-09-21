@@ -334,6 +334,25 @@
   padding-top: 12px;
 }
 
+/* ── Links de matéria (card "O que falam sobre nós") ──────────── */
+.press-card-body { gap: 6px; }
+.press-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.05);
+  color: hsl(0 0% 92%);
+  text-decoration: none;
+  font-size: .82rem;
+  font-weight: 500;
+  transition: background .2s ease;
+}
+.press-link:hover { background: rgba(255,255,255,.1); }
+.press-link span { opacity: .5; font-size: .8rem; }
+
 /* ── Outras unidades ────────────────────────────────────────── */
 .other-units-section {
   width: 100%;
