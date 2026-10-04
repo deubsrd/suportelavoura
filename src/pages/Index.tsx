@@ -75,6 +75,7 @@ export default function Index() {
         {units.map((unit, i) => (
           <UnitCard key={unit.slug} unit={unit} index={i + 1} />
         ))}
+        <LinkCard link={deliveryLink} index={units.length + 1} />
       </div>
 
       <motion.p
