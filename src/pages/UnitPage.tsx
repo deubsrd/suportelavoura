@@ -37,6 +37,12 @@ export default function UnitPage({ unit }: { unit: Unit }) {
             icon: "support" as const,
             trackingId: `${unit.slug}_suporte_whatsapp`,
           },
+          {
+            label: "Pedir Delivery",
+            href: "https://lavoura-link.lovable.app/",
+            icon: "delivery" as const,
+            trackingId: `${unit.slug}_delivery`,
+          },
         ]
       : []),
   ];
