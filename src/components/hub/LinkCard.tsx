@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { MapPin, Headphones, Building2 } from "lucide-react";
+import { MapPin, Headphones, Building2, Bike } from "lucide-react";
 
 import { trackLinkClick } from "@/data/analytics";
 
 export type LinkItem = {
   label: string;
   href: string;
-  icon: "franchise" | "map" | "support";
+  icon: "franchise" | "map" | "support" | "delivery";
   highlight?: boolean;       // destaque visual (botão laranja)
   disabled?: boolean;        // exibe badge "Em breve"
   badge?: string;            // texto do badge opcional
@@ -17,6 +17,7 @@ const iconMap = {
   franchise: Building2,
   map: MapPin,
   support: Headphones,
+  delivery: Bike,
 } as const;
 
 export function LinkCard({ link, index }: { link: LinkItem; index: number }) {
