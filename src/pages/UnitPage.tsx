@@ -26,6 +26,12 @@ export default function UnitPage({ unit }: { unit: Unit }) {
     ...(isOpen
       ? [
           {
+            label: "Pedir Delivery",
+            href: "https://lavoura-link.lovable.app/",
+            icon: "delivery" as const,
+            trackingId: `${unit.slug}_delivery`,
+          },
+          {
             label: unit.name,
             href: unit.mapHref,
             icon: "map" as const,
@@ -36,12 +42,6 @@ export default function UnitPage({ unit }: { unit: Unit }) {
             href: `https://wa.me/${unit.whatsapp}`,
             icon: "support" as const,
             trackingId: `${unit.slug}_suporte_whatsapp`,
-          },
-          {
-            label: "Pedir Delivery",
-            href: "https://lavoura-link.lovable.app/",
-            icon: "delivery" as const,
-            trackingId: `${unit.slug}_delivery`,
           },
         ]
       : []),
