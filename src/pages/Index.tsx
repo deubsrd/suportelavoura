@@ -7,6 +7,13 @@ import { UnitCard } from "@/components/hub/UnitCard";
 import { FRANCHISE_HREF, units } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
+const deliveryLink: LinkItem = {
+  label: "Pedir Delivery",
+  href: "https://lavoura-link.lovable.app/",
+  icon: "delivery",
+  trackingId: "hub_delivery",
+};
+
 const franchiseLink: LinkItem = {
   label: "Seja um Franqueado",
   href: FRANCHISE_HREF,
@@ -68,6 +75,7 @@ export default function Index() {
         {units.map((unit, i) => (
           <UnitCard key={unit.slug} unit={unit} index={i + 1} />
         ))}
+        <LinkCard link={deliveryLink} index={units.length + 1} />
       </div>
 
       <motion.p
