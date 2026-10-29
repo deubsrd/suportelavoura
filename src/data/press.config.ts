@@ -12,6 +12,16 @@ export type PressItem = {
 
 export const pressItems: PressItem[] = [
   {
+    label: "Na Hora do Brasil",
+    href: "https://www.nahoradobrasil.com.br/2026/09/lavanderias-de-autosservico-passam-de-3.html",
+    trackingId: "imprensa_nahoradobrasil",
+  },
+  {
+    label: "Empreender Brasília",
+    href: "https://www.empreenderbrasilia.com.br/2026/09/lavoura-franquia-de-autosservico.html",
+    trackingId: "imprensa_empreenderbrasilia",
+  },
+  {
     label: "Folha de Boa Vista",
     href: "https://www.folhabv.com.br/cotidiano/do-cafezinho-ao-autosservico-empresarios-reinventam-conceito-de-lavanderia-e-criam-franquia-em-roraima/",
     trackingId: "imprensa_folhabv",
