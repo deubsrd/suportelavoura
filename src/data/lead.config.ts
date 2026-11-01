@@ -32,13 +32,3 @@ export type LeadPayload = {
   /** Origem do lead (ex.: "instagram-deubson"). Só é gravada se o backend aceitar o campo. */
   source: string;
 };
-
-// Contador de cliques no card do diagnóstico G4 Valley (tabela "g4_link_clicks"
-// e função "g4_click_count" no mesmo backend; a chave pública só pode inserir).
-export const G4_CLICKS_URL = `${SUPABASE_URL}/rest/v1/g4_link_clicks`;
-export const G4_COUNT_URL = `${SUPABASE_URL}/rest/v1/rpc/g4_click_count`;
-
-export const insertHeaders = {
-  ...leadHeaders,
-  Prefer: "return=minimal",
-};
