@@ -7,7 +7,7 @@ import { useG4Clicks } from "@/hooks/use-g4-clicks";
 import { FRANCHISE_HREF } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
-const G4_DIAGNOSTICO_HREF = "/g4-valley/index.html#diagnostico";
+const G4_DIAGNOSTICO_HREF = "/g4-valley/index.html";
 
 const personalLinks: LinkItem[] = [
   {
