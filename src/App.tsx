@@ -26,7 +26,7 @@ const App = () => (
           <Route key={unit.slug} path={`/${unit.slug}`} element={<UnitPage unit={unit} />} />
         ))}
         <Route path="/franquia" element={<Franquia />} />
-        <Route path="/deubson" element={<Deubson />} />
+        <Route path="/albuquerque" element={<Deubson />} />
         {/* ADICIONE NOVAS ROTAS ACIMA DESTA LINHA */}
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -435,7 +435,7 @@
   color: hsl(160 20% 55%);
 }
 
-/* ── Perfil pessoal (/deubson) ─────────────────────────────────
+/* ── Perfil pessoal (/albuquerque) ─────────────────────────────────
    Linha sóbria: verde-noite, off-white, Bebas Neue + Montserrat.
    Laranja só no ponto final do nome. ─────────────────────────── */
 .page-root-personal { background: #1a2420; }
@@ -507,7 +507,7 @@
   opacity: .65;
 }
 
-/* ── Guia + formulário (/deubson) ───────────────────────────── */
+/* ── Guia + formulário (/albuquerque) ───────────────────────────── */
 .page-root-personal .coffee-card {
   background: rgba(236, 236, 231, .05);
   border: 1px solid rgba(236, 236, 231, .14);

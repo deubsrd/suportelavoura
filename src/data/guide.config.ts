@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // guide.config.ts
-// Conteúdo do guia "Como abrir uma lavanderia de autosserviço" (página /deubson).
+// Conteúdo do guia "Como abrir uma lavanderia de autosserviço" (página /albuquerque).
 // Números extraídos do site da franquia (lavanderialavoura.com.br).
 // Valores de retorno são estimativas/simulações, não promessa de resultado.
 // ─────────────────────────────────────────────────────────────────────────────
