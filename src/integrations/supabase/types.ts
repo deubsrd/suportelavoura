@@ -14,13 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      g4_events: {
+        Row: {
+          created_at: string
+          file: string | null
+          id: string
+          kind: string
+        }
+        Insert: {
+          created_at?: string
+          file?: string | null
+          id?: string
+          kind: string
+        }
+        Update: {
+          created_at?: string
+          file?: string | null
+          id?: string
+          kind?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      g4_download_count: { Args: never; Returns: number }
     }
     Enums: {
       [_ in never]: never
