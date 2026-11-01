@@ -11,6 +11,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import UnitPage from "./pages/UnitPage.tsx";
 import Franquia from "./pages/Franquia.tsx";
+import Deubson from "./pages/Deubson.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { units } from "./data/units.config";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route key={unit.slug} path={`/${unit.slug}`} element={<UnitPage unit={unit} />} />
         ))}
         <Route path="/franquia" element={<Franquia />} />
+        <Route path="/deubson" element={<Deubson />} />
         {/* ADICIONE NOVAS ROTAS ACIMA DESTA LINHA */}
         <Route path="*" element={<NotFound />} />
       </Routes>

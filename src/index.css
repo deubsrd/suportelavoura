@@ -434,3 +434,75 @@
 .page-root-light .page-footer {
   color: hsl(160 20% 55%);
 }
+
+/* ── Perfil pessoal (/deubson) ─────────────────────────────────
+   Linha sóbria: verde-noite, off-white, Bebas Neue + Montserrat.
+   Laranja só no ponto final do nome. ─────────────────────────── */
+.page-root-personal { background: #1a2420; }
+.personal-hero {
+  width: 100%;
+  padding: 3.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(57, 79, 62, .55), rgba(26, 36, 32, 0) 70%);
+}
+.personal-eyebrow {
+  margin: 0 0 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: .6rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: rgba(236, 236, 231, .7);
+}
+.personal-name {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  color: #ececE7;
+  text-transform: uppercase;
+}
+.personal-first {
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: .04em;
+}
+.personal-keyword {
+  font-size: clamp(3.4rem, 17vw, 5.6rem);
+  line-height: .88;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  -webkit-text-stroke: 2px #ececE7;
+}
+.personal-dot { color: #e17c4c; -webkit-text-stroke: 2px #e17c4c; }
+
+.page-root-personal .link-card-v2 { border-radius: 10px; }
+.page-root-personal .link-card-default {
+  background: rgba(236, 236, 231, .05);
+  border: 1px solid rgba(236, 236, 231, .14);
+  color: #ececE7;
+}
+.page-root-personal .link-card-cta {
+  background: #ececE7;
+  color: #1a2420;
+}
+.page-root-personal .link-card-cta .lc-icon { background: rgba(26, 36, 32, .1); }
+.page-root-personal .link-card-cta .lc-badge {
+  background: rgba(26, 36, 32, .1);
+  color: #1a2420;
+}
+.page-root-personal .page-footer { color: rgba(236, 236, 231, .35); }
+
+.lc-desc {
+  display: block;
+  margin-top: 2px;
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  opacity: .65;
+}
