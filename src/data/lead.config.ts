@@ -29,4 +29,6 @@ export type LeadPayload = {
   phone: string;
   job_title: string;
   valor_disponivel: (typeof INVESTMENT_OPTIONS)[number];
+  /** Origem do lead (ex.: "instagram-deubson"). Só é gravada se o backend aceitar o campo. */
+  source: string;
 };

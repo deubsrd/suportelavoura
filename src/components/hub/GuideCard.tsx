@@ -63,7 +63,7 @@ export function GuideCard({ index }: { index: number }) {
               <p className="guide-disclaimer">{GUIDE_DISCLAIMER}</p>
 
               <h3 className="guide-form-title">Receba as condições completas</h3>
-              <LeadForm trackingId="deubson_guia_lead" />
+              <LeadForm trackingId="deubson_guia_lead" source="instagram-deubson" />
             </div>
           </motion.div>
         )}

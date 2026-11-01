@@ -21,7 +21,7 @@ type Status = "idle" | "sending" | "success" | "error";
 type Errors = Partial<Record<"name" | "phone" | "job" | "invest", string>>;
 
 /** Formulário que envia para o mesmo backend ("submit-lead") do site da franquia. */
-export function LeadForm({ trackingId }: { trackingId: string }) {
+export function LeadForm({ trackingId, source }: { trackingId: string; source: string }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [job, setJob] = useState("");
@@ -50,6 +50,7 @@ export function LeadForm({ trackingId }: { trackingId: string }) {
       phone: `+55${phone.replace(/\D/g, "")}`,
       job_title: job.trim(),
       valor_disponivel: invest as LeadPayload["valor_disponivel"],
+      source,
     };
 
     setStatus("sending");
