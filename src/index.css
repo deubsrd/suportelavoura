@@ -506,3 +506,87 @@
   letter-spacing: 0;
   opacity: .65;
 }
+
+/* ── Guia + formulário (/deubson) ───────────────────────────── */
+.page-root-personal .coffee-card {
+  background: rgba(236, 236, 231, .05);
+  border: 1px solid rgba(236, 236, 231, .14);
+  border-radius: 10px;
+  color: #ececE7;
+}
+.page-root-personal .coffee-card-body { border-top-color: rgba(236, 236, 231, .12); }
+.page-root-personal .coffee-icon {
+  background: rgba(236, 236, 231, .1);
+  color: #ececE7;
+}
+
+.guide-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.guide-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(236, 236, 231, .06);
+  border: 1px solid rgba(236, 236, 231, .1);
+}
+.guide-stat strong {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1;
+  letter-spacing: .02em;
+  color: #ececE7;
+}
+.guide-stat span { font-size: .7rem; opacity: .65; line-height: 1.25; }
+.guide-disclaimer { font-size: .68rem; opacity: .5; }
+.guide-form-title {
+  margin: 6px 0 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+  color: #ececE7;
+}
+
+.lead-form { display: flex; flex-direction: column; gap: 10px; }
+.lead-field { display: flex; flex-direction: column; gap: 4px; }
+.lead-field label { font-size: .72rem; opacity: .75; }
+.lead-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(236, 236, 231, .2);
+  background: rgba(26, 36, 32, .6);
+  color: #ececE7;
+  font: inherit;
+  font-size: .85rem;
+}
+.lead-input:focus { outline: 2px solid rgba(236, 236, 231, .5); outline-offset: 1px; }
+.lead-input option { background: #1a2420; color: #ececE7; }
+.lead-error { font-size: .7rem; color: #f0a79a; margin: 0; }
+.lead-btn {
+  margin-top: 4px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #ececE7;
+  color: #1a2420;
+  font: inherit;
+  font-weight: 600;
+  font-size: .85rem;
+  cursor: pointer;
+}
+.lead-btn:disabled { opacity: .6; cursor: progress; }
+.lead-success {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(236, 236, 231, .08);
+}

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { LinkCard, type LinkItem } from "@/components/hub/LinkCard";
+import { GuideCard } from "@/components/hub/GuideCard";
 import { FRANCHISE_HREF } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
@@ -25,6 +26,14 @@ const personalLinks: LinkItem[] = [
     trackingId: "deubson_franqueado",
   },
 ];
+
+const whatsappLink: LinkItem = {
+  label: "Fale comigo",
+  description: "Palestras, parcerias e mentoria",
+  href: "https://wa.me/5592991176452",
+  icon: "chat",
+  trackingId: "deubson_whatsapp",
+};
 
 /* ── Página do perfil pessoal (bio do Instagram) ───────────── */
 export default function Deubson() {
@@ -64,6 +73,8 @@ export default function Deubson() {
         {personalLinks.map((link, i) => (
           <LinkCard key={link.trackingId} link={link} index={i} />
         ))}
+        <GuideCard index={personalLinks.length} />
+        <LinkCard link={whatsappLink} index={personalLinks.length + 1} />
       </div>
 
       <motion.p

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, Headphones, Building2, Bike, Compass } from "lucide-react";
+import { MapPin, Headphones, Building2, Bike, Compass, MessageCircle } from "lucide-react";
 
 import { trackLinkClick } from "@/data/analytics";
 
@@ -7,7 +7,7 @@ export type LinkItem = {
   label: string;
   description?: string;      // linha de apoio abaixo do label
   href: string;
-  icon: "franchise" | "map" | "support" | "delivery" | "insight";
+  icon: "franchise" | "map" | "support" | "delivery" | "insight" | "chat";
   highlight?: boolean;       // destaque visual (botão laranja)
   disabled?: boolean;        // exibe badge "Em breve"
   badge?: string;            // texto do badge opcional
@@ -20,6 +20,7 @@ const iconMap = {
   support: Headphones,
   delivery: Bike,
   insight: Compass,
+  chat: MessageCircle,
 } as const;
 
 export function LinkCard({ link, index }: { link: LinkItem; index: number }) {
