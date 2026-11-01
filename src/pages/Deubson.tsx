@@ -6,7 +6,7 @@ import { GuideCard } from "@/components/hub/GuideCard";
 import { FRANCHISE_HREF } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
-const G4_DIAGNOSTICO_HREF = "https://claude.ai/artifact/YToWZDeU7HTDwqfYu6PkFw#diagnostico";
+const G4_DIAGNOSTICO_HREF = "/g4-valley/index.html#diagnostico";
 
 const personalLinks: LinkItem[] = [
   {
@@ -14,6 +14,7 @@ const personalLinks: LinkItem[] = [
     description: "Diagnóstico gratuito + resumos do G4 Valley 2026",
     href: G4_DIAGNOSTICO_HREF,
     icon: "insight",
+    internal: true,
     highlight: true,
     badge: "Grátis",
     trackingId: "deubson_diagnostico_g4",

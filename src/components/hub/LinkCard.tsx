@@ -8,6 +8,7 @@ export type LinkItem = {
   description?: string;      // linha de apoio abaixo do label
   href: string;
   icon: "franchise" | "map" | "support" | "delivery" | "insight" | "chat";
+  internal?: boolean;        // abre na mesma aba (página do próprio site)
   highlight?: boolean;       // destaque visual (botão laranja)
   disabled?: boolean;        // exibe badge "Em breve"
   badge?: string;            // texto do badge opcional
@@ -62,8 +63,8 @@ export function LinkCard({ link, index }: { link: LinkItem; index: number }) {
   return (
     <motion.a
       href={link.href}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={link.internal ? undefined : "_blank"}
+      rel={link.internal ? undefined : "noopener noreferrer"}
       className={cardClass}
       style={style}
       onClick={() => trackLinkClick(link.trackingId, link.label)}

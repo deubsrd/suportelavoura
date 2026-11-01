@@ -1,0 +1,545 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Lavoura no G4 Valley · Resumos e diagnóstico</title><meta name="description" content="Resumos dos 3 dias do G4 Valley 2026, insights dos palestrantes e um diagnóstico gratuito para descobrir onde a sua empresa trava."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>
+/* Layout: dark-green brand bands stacked; sticky nav; hero with animated connector; quiz as a single card that swaps steps. Single dark look by choice (Lavoura identity). */
+:root{
+  --deep:#1a2420; --green:#253530; --brand:#394f3e; --sage:#5a7a61; --mint:#8fb596;
+  --orange:#e17c4c; --paper:#fdfdfd; --mist:#C9D4CB; --line:rgba(255,255,255,.14); --blue:#5cb5e6;
+  --font:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--deep);color:var(--paper);font-family:var(--font);font-weight:600;font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--deep)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font);font-weight:900;margin:0;text-wrap:balance;line-height:1.15}
+h2{font-size:clamp(26px,4vw,36px)}
+p{margin:0 0 10px}
+a{color:inherit}
+.kicker{font-size:12px;letter-spacing:.26em;color:var(--orange);font-weight:900;text-transform:uppercase}
+.sub{color:var(--mist);max-width:62ch;margin:8px 0 24px}
+section .wrap{padding-block:56px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(26,36,32,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.nav .lg{width:104px;display:block}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a{text-decoration:none;font-weight:800;font-size:14px;padding:7px 12px;border-radius:30px;color:var(--mist)}
+.nav a:hover,.nav a:focus-visible{color:var(--paper);background:var(--brand);outline:none}
+.nav a.cta{background:var(--orange);color:var(--paper)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 80% 10%,#3e5a45 0%,var(--green) 45%,var(--deep) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-block:48px 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.hero .wrap>*{min-width:0}
+#bubbles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.b{position:absolute;bottom:-120px;border-radius:50%;border:2px solid rgba(255,255,255,.2);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.28),rgba(255,255,255,.03) 60%);animation:rise linear infinite}
+@keyframes rise{0%{transform:translate(0,0) scale(.8)}50%{transform:translate(18px,-55vh) scale(1)}100%{transform:translate(-10px,-115vh) scale(1.05)}}
+.titlebox{margin:14px 0 22px;transform:rotate(-2.5deg);transform-origin:left center}
+.tarja{display:inline-block;background:var(--brand);color:var(--paper);border:4px solid var(--paper);border-radius:40px;padding:6px 20px;font-weight:900;text-transform:uppercase;font-size:clamp(15px,2.6vw,22px);box-shadow:0 8px 0 rgba(0,0,0,.3);animation:slideIn .7s cubic-bezier(.2,.9,.3,1.2) both}
+.impact{display:block;color:var(--orange);font-weight:900;text-transform:uppercase;line-height:1;font-size:clamp(50px,9.5vw,96px);-webkit-text-stroke:12px var(--paper);paint-order:stroke fill;text-shadow:0 10px 0 rgba(0,0,0,.28);margin-top:12px;animation:pop .8s .25s cubic-bezier(.2,1.4,.4,1) both}
+.dias{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.dias span{background:var(--orange);color:var(--paper);border:3px solid var(--paper);border-radius:40px;padding:2px 14px;font-weight:900;font-size:15px;box-shadow:0 5px 0 rgba(0,0,0,.3);animation:pop .5s cubic-bezier(.2,1.4,.4,1) both}
+.dias span:nth-child(1){animation-delay:.6s}.dias span:nth-child(2){animation-delay:.72s}.dias span:nth-child(3){animation-delay:.84s}.dias span:nth-child(4){animation-delay:.96s;background:var(--brand)}
+@keyframes slideIn{from{transform:translateX(-30px);opacity:.2}to{transform:none;opacity:1}}
+@keyframes pop{from{transform:scale(.6);opacity:.2}to{transform:none;opacity:1}}
+.lede{color:#E5ECE6;max-width:50ch;font-size:17px;margin:0 0 22px}
+.btn{font:inherit;font-weight:900;font-size:16px;border-radius:40px;padding:13px 24px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;border:3px solid var(--paper);color:var(--paper);background:transparent}
+.btn.primary{background:var(--orange);box-shadow:0 6px 0 rgba(0,0,0,.3)}
+.btn.primary:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(0,0,0,.3)}
+.btn.ghost{border-color:rgba(255,255,255,.45)}
+.btn.small{font-size:14px;padding:9px 16px;border-width:2px}
+.btn:focus-visible,button:focus-visible,label:focus-within{outline:3px solid var(--orange);outline-offset:3px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.connector{width:100%;max-width:440px;justify-self:center}
+.connector .path{stroke-dasharray:8 10;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-36}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:28px}
+.stat{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.stat b{display:block;font-size:28px;font-weight:900;color:var(--paper);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--mist)}
+
+/* about */
+.about{background:var(--brand)}
+.about .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:start}
+.about .wrap>*{min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{background:rgba(255,255,255,.12);border-radius:30px;padding:6px 14px;font-size:14px;font-weight:800}
+.note-card{background:var(--green);border-radius:18px;padding:20px}
+.note-card h3{font-size:19px;color:var(--orange);margin-bottom:8px}
+
+/* resumos */
+.docs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.doc{background:var(--green);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0;border:1px solid var(--line)}
+.doc img{width:100%;max-width:100%;aspect-ratio:210/297;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,.8);transition:transform .25s}
+.doc:hover img{transform:rotate(-1.5deg) translateY(-3px)}
+.doc h3{font-size:19px}
+.doc p{font-size:14px;color:var(--mist);margin:0;flex:1}
+.doc .meta{font-size:12.5px;color:var(--mist)}
+.doc .actions{gap:8px}
+.status{font-size:13px;color:var(--mist);min-height:1.3em}
+
+/* insights */
+.ins{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--green);border-radius:18px;padding:18px;border-top:5px solid var(--c,#e17c4c);min-width:0}
+.card .who{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card .who b{font-size:19px;font-weight:900}
+.card .who span{font-size:13px;color:var(--mist);font-weight:800}
+.card q{display:block;font-style:italic;font-weight:900;font-size:17px;color:var(--c);margin:8px 0 10px;quotes:"“" "”"}
+.card ul{margin:0;padding-left:18px;font-size:14.5px}
+.card li{margin:4px 0}
+.card details summary{cursor:pointer;color:var(--orange);font-weight:900;font-size:14px;margin-top:8px;list-style:none}
+.card details summary::-webkit-details-marker{display:none}
+.card .lav{margin-top:10px;background:rgba(143,181,150,.15);border-left:3px solid var(--mint);padding:8px 10px;border-radius:0 8px 8px 0;font-size:14px}
+.card .lav b{color:var(--mint)}
+
+/* quiz */
+.quiz{background:var(--paper);color:var(--green);border-radius:22px;padding:clamp(18px,4vw,34px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.quiz h3{font-size:clamp(20px,3vw,26px);color:var(--green)}
+.qmeta{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:900;color:var(--sage);text-transform:uppercase;letter-spacing:.08em;flex-wrap:wrap}
+.bar{height:8px;background:#E3E9E4;border-radius:8px;overflow:hidden;margin:10px 0 18px}
+.bar i{display:block;height:100%;background:var(--orange);width:0;transition:width .35s}
+.opts{display:grid;gap:10px;margin-top:16px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;font-weight:700;font-size:15.5px;color:var(--green);background:#F2F5F2;border:2px solid #DDE5DE;border-radius:14px;padding:12px 14px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--sage)}
+.opt.sel{border-color:var(--orange);background:#FFF1E9}
+.opt .dot{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--sage);margin-top:1px;display:flex;align-items:center;justify-content:center}
+.opt.sel .dot{border-color:var(--orange);background:var(--orange)}
+.opt.sel .dot::after{content:"";width:8px;height:8px;border-radius:50%;background:#fff}
+.qnav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.qbtn{font:inherit;font-weight:900;font-size:15px;border-radius:30px;padding:10px 20px;cursor:pointer;border:2px solid var(--green);background:transparent;color:var(--green)}
+.qbtn.go{background:var(--orange);border-color:var(--orange);color:#fff}
+.qbtn[disabled]{opacity:.4;cursor:not-allowed}
+.dimtag{display:inline-block;background:var(--green);color:#fff;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.intro-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.intro-list div{background:#F2F5F2;border-radius:12px;padding:10px 12px;font-size:14px}
+.intro-list b{display:block;color:var(--orange);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+/* result */
+.res-top{display:grid;grid-template-columns:300px 1fr;gap:24px;align-items:center}
+.res-top>*{min-width:0}
+.ring{width:100%;max-width:300px}
+.lvl{display:inline-block;border-radius:30px;padding:4px 14px;font-weight:900;font-size:13px;color:#fff}
+.dims{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.dim{background:#F2F5F2;border-radius:12px;padding:10px 12px}
+.dim .t{display:flex;justify-content:space-between;font-weight:900;font-size:14px}
+.dim .t span{font-variant-numeric:tabular-nums}
+.dim .m{height:7px;background:#DDE5DE;border-radius:6px;margin-top:6px;overflow:hidden}
+.dim .m i{display:block;height:100%;border-radius:6px}
+.gap{border:2px solid #DDE5DE;border-radius:16px;padding:16px;margin-top:14px}
+.gap h4{margin:0 0 6px;font-size:19px;font-weight:900;color:var(--green)}
+.gap .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.gap .cols>div{min-width:0}
+.gap h5{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);font-weight:900}
+.gap ul{margin:0;padding-left:18px;font-size:14.5px}
+.gap li{margin:4px 0}
+.stagebox{background:var(--green);color:#fff;border-radius:16px;padding:16px;margin-top:14px}
+.stagebox h4{margin:0 0 6px;color:var(--orange);font-size:17px;font-weight:900}
+.stagebox table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:6px}
+.stagebox td{padding:6px 8px;border-top:1px solid rgba(255,255,255,.15);vertical-align:top}
+.stagebox td:first-child{color:var(--mist);width:34%;font-weight:800}
+.tablewrap{overflow-x:auto}
+.ig{background:var(--orange)}
+.ig .wrap{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;padding-block:36px}
+.ig .h{font-weight:900;font-size:26px}
+.fine{font-size:12px;color:var(--mist);padding-block:20px 30px}
+@media (max-width:860px){
+  .hero .wrap,.about .wrap,.res-top{grid-template-columns:1fr}
+  .docs{grid-template-columns:1fr 1fr}
+  .ins{grid-template-columns:1fr}
+  .dims{grid-template-columns:1fr 1fr}
+  .intro-list{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .ring{margin:0 auto}
+}
+@media (max-width:520px){
+  .docs,.dims,.gap .cols{grid-template-columns:1fr}
+  .nav ul a:not(.cta){display:none}
+  .impact{-webkit-text-stroke:9px var(--paper)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<nav class="nav" aria-label="Seções">
+  <div class="wrap">
+    <a href="#inicio" class="lg" aria-label="Lavoura, início"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1920 575"> <defs> <style> .lv-a { fill: #f5f3f0; } .lv-b { fill: #5cb5e6; } </style> </defs> <g> <g id="Layer_1"> <g> <g> <path class="lv-a" d="M107.6,18.3c12.3,0,21.9,3.5,29,10.4,7.1,6.9,10.6,16.5,10.6,28.8v240.9c0,46,22.8,64.1,68.5,64.1h97.2c3.8,0,5.7,4.2,5.7,7.6s-1.9,7.6-5.7,7.6h-111c-20.7,0-39.3-2.9-55.8-8.6-16.5-5.8-30.5-14-42-24.7-11.5-10.7-20.3-23.6-26.5-38.5-6.1-15-9.2-31.8-9.2-50.6V57.4c0-11.9,3.5-21.4,10.6-28.5,7.1-7.1,16.6-10.6,28.5-10.6Z"/> <g> <path class="lv-a" d="M267.7,239.6c0-21.1,3.5-40.5,10.6-58.1,7.1-17.6,17-32.8,29.6-45.4,12.7-12.7,27.9-22.5,45.7-29.6,17.8-7.1,37.3-10.6,58.4-10.6,20.7,0,39.6,3.5,56.7,10.6,17.1,7.1,31.6,17.1,43.7,29.9,12.1,12.9,21.4,28.3,27.9,46.3,6.5,18,9.8,38,9.8,59.8v103.5c0,11.1-3.4,20-10.1,26.7-6.7,6.7-15.6,10.1-26.7,10.1-11.1,0-19.9-3.2-26.5-9.5-6.5-6.3-10.2-14.9-10.9-25.6-16.9,23.8-40.8,35.7-71.9,35.7-19.2,0-37-3.7-53.5-11.2-16.5-7.5-30.9-17.6-43.1-30.5-12.3-12.8-22-28.1-29.1-45.7-7.1-17.6-10.6-36.4-10.6-56.4ZM347.7,239.6c0,41,5.8,73.3,17.3,96.9,11.5,23.6,27.2,31.6,47.2,31.6,19.6,0,35.1-8,46.6-31.6,11.5-23.6,17.3-55.9,17.3-96.9,0-41.4-5.7-74-17.3-97.8-11.5-23.8-27.3-31.7-46.9-31.7s-40,18.6-46.6,31.7c-5.8,11.4-9.9,25.5-12.9,42-3.1,16.5-4.6,35.1-4.6,55.8Z"/> <path class="lv-a" d="M680.3,383.6c-21.5,0-38.7-17.1-51.8-51.2l-71.9-188.1c-2.3-6.1-3-12.1-2-17.8.9-5.7,3.1-10.8,6.3-15.2,3.3-4.4,7.7-8,13.2-10.6,5.6-2.7,11.8-4,18.7-4,15.7,0,26.3,7.1,31.6,21.3l76.5,202.5c3.1,7.7,5.4,10.1,10,10.1,4.6,0,7-3.8,10-11.5l81.1-215.1c.8-1.9,1.9-3.2,3.4-3.7,1.5-.6,3.6-.7,5.9.1s3.7,2.3,4.5,3.6c.8,1.3.8,3,0,4.9l-85.7,223.8c-13.4,34.1-30.1,51.2-50.1,51.2Z"/> </g> <path class="lv-a" d="M1297.7,383.5c-19.6,0-37.5-3.3-53.8-9.8-16.3-6.5-30.3-15.6-42-27.3-11.7-11.7-20.8-25.8-27.3-42.3-6.5-16.5-9.8-34.5-9.8-54.1v-116.8c0-11.1,3.4-20,10.1-26.7,6.7-6.7,15.6-10.1,26.7-10.1,11.1,0,20.1,3.4,27,10.1,6.9,6.7,10.4,15.6,10.4,26.7v158.2c0,24.5,5.3,44.3,15.8,59.3,10.5,15,24.8,18.1,42.9,18.1,17.6,0,31.8-3.1,42.6-18.1,10.7-15,16.1-34.7,16.1-59.3v-158.2c-.4-11.1,2.9-20,9.8-26.7,6.9-6.7,15.9-10.1,27-10.1,11.1,0,20.1,3.4,27,10.1,6.9,6.7,10.4,15.6,10.4,26.7v116.8c0,19.6-3.3,37.6-9.8,54.1-6.5,16.5-15.6,30.6-27.3,42.3-11.7,11.7-25.7,20.8-42,27.3-16.3,6.5-34.2,9.8-53.8,9.8Z"/> <path class="lv-a" d="M1503.6,382.9c-11.1,0-20-3.4-26.7-10.1-6.7-6.7-10.1-15.6-10.1-26.7v-126c0-18.8,3.2-35.9,9.8-51.2,6.5-15.3,15.8-28.4,27.9-39.1,12.1-10.7,26.6-19.1,43.4-25,16.9-5.9,35.8-8.9,56.9-8.9h2.9c3.8,0,5.7,3.7,5.7,7.2,0,3.5-1.9,7.2-5.7,7.2h-2.9c-19.5,0-35.1,7.1-46.6,21.3-11.5,14.2-17.3,29.2-17.3,53v161.6c0,11.1-3.5,20-10.4,26.7-6.9,6.7-15.9,10.1-27,10.1Z"/> <path class="lv-a" d="M1585.1,239.6c0-21.1,3.5-40.5,10.6-58.1,7.1-17.6,17-32.8,29.6-45.4,12.7-12.7,27.9-22.5,45.7-29.6,17.8-7.1,37.3-10.6,58.4-10.6,20.7,0,39.6,3.5,56.7,10.6,17.1,7.1,31.6,17.1,43.7,29.9,12.1,12.9,21.4,28.3,27.9,46.3,6.5,18,9.8,38,9.8,59.8v103.5c0,11.1-3.4,20-10.1,26.7-6.7,6.7-15.6,10.1-26.7,10.1-11.1,0-19.9-3.2-26.5-9.5-6.5-6.3-10.2-14.9-10.9-25.6-16.9,23.8-40.8,35.7-71.9,35.7-19.2,0-37-3.7-53.5-11.2-16.5-7.5-30.9-17.6-43.1-30.5-12.3-12.8-22-28.1-29.1-45.7-7.1-17.6-10.6-36.4-10.6-56.4ZM1665,239.6c0,41,5.8,73.3,17.3,96.9,11.5,23.6,27.2,31.6,47.2,31.6,19.6,0,35.1-8,46.6-31.6,11.5-23.6,17.3-55.9,17.3-96.9,0-41.4-5.7-74-17.3-97.8-11.5-23.8-27.3-31.7-46.9-31.7s-40,18.6-46.6,31.7c-5.8,11.4-9.9,25.5-12.9,42-3.1,16.5-4.6,35.1-4.6,55.8Z"/> </g> <g> <path class="lv-a" d="M293.3,480.1v45.5h29.8v10.6h-41.9v-56.1h12.1Z"/> <path class="lv-a" d="M362.3,480.1l24.3,56.1h-13.2l-5.7-13h-23.4l-5.6,13h-13.2l24.3-56.1h12.5ZM347.5,514.4h17.1l-3.5-8.1c-1.6-3.5-4.7-13.6-4.7-13.6h-.4s-3.4,10.1-4.8,13.6l-3.5,8.1Z"/> <path class="lv-a" d="M383.7,480.1h13.5l12.8,29.9c1.1,2.8,3.3,10.4,3.3,10.4h.5s2.2-7.6,3.3-10.4l12.7-29.9h13.6l-23.8,56.1h-12.1l-23.8-56.1Z"/> <path class="lv-a" d="M477.2,480.1l24.3,56.1h-13.2l-5.7-13h-23.4l-5.6,13h-13.2l24.3-56.1h12.5ZM462.4,514.4h17.1l-3.5-8.1c-1.6-3.5-4.7-13.6-4.7-13.6h-.4s-3.4,10.1-4.8,13.6l-3.5,8.1Z"/> <path class="lv-a" d="M550.7,480.1h12.1v56.1h-11.3l-31-37.5h-.2s.8,8.6.8,12.9v24.6h-12.1v-56.1h11.5l30.9,37.3h.2s-.8-8.7-.8-11.9v-25.4Z"/> <path class="lv-a" d="M594.3,480.1c24.9,0,34.1,12.2,34.1,28s-11,28.1-30.7,28.1h-21.4v-56.1h17.9ZM588.5,525.6h9.5c12.5,0,18.4-5.3,18.4-17.6s-5.1-17.4-20.1-17.4h-7.8v35Z"/> <path class="lv-a" d="M650.3,512.2v13.6h32v10.4h-44v-56.1h42.5v10.5h-30.4v12.4h26.8v9.2h-26.8Z"/> <path class="lv-a" d="M691.5,480.1h21.6c15.7,0,22.7,7.7,22.7,18.2s-2.7,12.3-9.1,15.3v.3l14,22.3h-13.5l-12.9-20.3h-10.6v20.3h-12.1v-56.1ZM712.2,506.9c8.1,0,11.5-2.5,11.5-8.4s-2.4-8.2-10.9-8.2h-9.4v16.5h8.7Z"/> <path class="lv-a" d="M760.2,480.1v56.1h-12.1v-56.1h12.1Z"/> <path class="lv-a" d="M804.5,480.1l24.3,56.1h-13.2l-5.7-13h-23.4l-5.6,13h-13.2l24.3-56.1h12.5ZM789.6,514.4h17.1l-3.5-8.1c-1.6-3.5-4.7-13.6-4.7-13.6h-.4s-3.4,10.1-4.8,13.6l-3.5,8.1Z"/> <path class="lv-a" d="M874.9,480.1c24.9,0,34.1,12.2,34.1,28s-11,28.1-30.7,28.1h-21.4v-56.1h17.9ZM869,525.6h9.5c12.5,0,18.4-5.3,18.4-17.6s-5.1-17.4-20.1-17.4h-7.8v35Z"/> <path class="lv-a" d="M930.8,512.2v13.6h32v10.4h-44v-56.1h42.5v10.5h-30.4v12.4h26.8v9.2h-26.8Z"/> <path class="lv-a" d="M1023.4,480.1l24.3,56.1h-13.2l-5.7-13h-23.4l-5.6,13h-13.2l24.3-56.1h12.5ZM1008.6,514.4h17.1l-3.5-8.1c-1.6-3.5-4.7-13.6-4.7-13.6h-.4s-3.4,10.1-4.8,13.6l-3.5,8.1Z"/> <path class="lv-a" d="M1105.8,480.1v33.9c0,15.9-11.9,23.3-26.3,23.3s-26.4-7.4-26.4-23.3v-33.9h12.1v33.4c0,8.1,4.7,13.1,14.3,13.1s14.2-5,14.2-13.1v-33.4h12.1Z"/> <path class="lv-a" d="M1134,490.7h-20.9v-10.6h53.8v10.6h-20.9v45.5h-12.1v-45.5Z"/> <path class="lv-a" d="M1232.3,507.8c0,16.9-12.4,29.4-30.9,29.4s-30.9-11.7-30.9-29.4,13.3-28.7,30.9-28.7,30.9,12.4,30.9,28.7ZM1183.3,507.9c0,11.9,7.8,18.5,18.1,18.5s18.1-6.7,18.1-18.5-7.8-18-18.1-18-18.1,7.2-18.1,18Z"/> <path class="lv-a" d="M1238.7,532.7l2.6-9.8c4.5,2,11.7,4.3,18.7,4.3s12.6-3.6,12.6-8.1-1-3.8-3-4.9c-2-1-6.2-1.7-11.2-2.3-5.6-.6-10-1.6-13.4-3.5-5.1-2.8-7-7.6-7-12.4,0-9.9,9.2-17.1,22.9-17.1s14.8,1.6,20.1,4l-2.8,9.5c-4.1-1.7-10.9-3.4-17-3.4-8.5,0-11.2,3.6-11.2,7s.7,3.5,3.1,4.7c2.3,1,6,1.5,10.9,2.1,5.3.7,10.1,1.7,13.1,3.4,4.9,2.7,7.2,7.1,7.2,12.7,0,10.2-7.9,18.2-23.4,18.2s-16.5-1.7-22.2-4.5Z"/> <path class="lv-a" d="M1290.8,532.7l2.6-9.8c4.5,2,11.7,4.3,18.7,4.3s12.6-3.6,12.6-8.1-1-3.8-3-4.9c-2-1-6.2-1.7-11.2-2.3-5.6-.6-10-1.6-13.4-3.5-5.1-2.8-7-7.6-7-12.4,0-9.9,9.2-17.1,22.9-17.1s14.8,1.6,20.1,4l-2.8,9.5c-4.1-1.7-10.9-3.4-17-3.4s-11.2,3.6-11.2,7,.7,3.5,3.1,4.7c2.3,1,6,1.5,10.9,2.1,5.3.7,10.1,1.7,13.1,3.4,4.9,2.7,7.2,7.1,7.2,12.7,0,10.2-7.9,18.2-23.4,18.2s-16.5-1.7-22.2-4.5Z"/> <path class="lv-a" d="M1358.3,512.2v13.6h32v10.4h-44v-56.1h42.5v10.5h-30.4v12.4h26.8v9.2h-26.8Z"/> <path class="lv-a" d="M1399.5,480.1h21.6c15.7,0,22.7,7.7,22.7,18.2s-2.7,12.3-9.1,15.3v.3l14,22.3h-13.5l-12.9-20.3h-10.6v20.3h-12.1v-56.1ZM1420.3,506.9c8.1,0,11.6-2.5,11.6-8.4s-2.4-8.2-10.9-8.2h-9.4v16.5h8.7Z"/> <path class="lv-a" d="M1449.2,480.1h13.5l12.8,29.9c1.1,2.8,3.3,10.4,3.3,10.4h.5s2.2-7.6,3.3-10.4l12.7-29.9h13.6l-23.8,56.1h-12.1l-23.8-56.1Z"/> <path class="lv-a" d="M1528.4,480.1v56.1h-12.1v-56.1h12.1Z"/> <path class="lv-a" d="M1557.8,549.4s3.4.9,7.2.9,5.1-.8,5.1-2.6-.9-2.3-4.3-2.3-4.7.3-4.7.3l2.8-8.8c-18.1-1.7-26.5-14.1-26.5-28.3s12.4-29.6,31-29.6,17.8,4.2,21.8,7.3l-4.7,9.5c-4.6-3.8-9.9-6.2-16.6-6.2-11.8,0-18.9,8.4-18.9,18.9s7.1,18.1,19.4,18.1,14.2-4.3,17.9-7.6l4.7,8.7c-2.9,3.2-10,8.7-21.3,9.4l-1.4,4.5h0c.9-.7,2-.9,2.8-.9,4,0,6.8,2.7,6.8,7s-2.7,8.9-13,8.9-8.2-1-8.2-1v-6.2Z"/> <path class="lv-a" d="M1658.8,507.8c0,16.9-12.4,29.4-30.9,29.4s-30.9-11.7-30.9-29.4,13.3-28.7,30.9-28.7,30.9,12.4,30.9,28.7ZM1609.8,507.9c0,11.9,7.8,18.5,18.1,18.5s18.1-6.7,18.1-18.5-7.8-18-18.1-18-18.1,7.2-18.1,18Z"/> </g> <path class="lv-a" d="M1114.5,173.5c-7.9-19.6-18.8-36.4-32.9-50.5-14.1-14.1-30.9-25-50.5-32.9-19.6-7.9-41.1-11.8-64.5-11.8s-45,3.9-64.8,11.8c-19.8,7.9-36.7,18.8-50.8,32.9-14.1,14.1-25,30.9-32.9,50.5-7.9,19.6-11.8,41.1-11.8,64.5s3.9,44.9,11.8,64.5c7.9,19.6,18.8,36.4,32.9,50.5,14.1,14.1,31,25,50.8,32.9,19.8,7.9,41.4,11.8,64.8,11.8s44.9-3.9,64.5-11.8c19.6-7.9,36.4-18.8,50.5-32.9,14.1-14.1,25-30.9,32.9-50.5,7.9-19.6,11.8-41.1,11.8-64.5s-3.9-44.9-11.8-64.5ZM1094.3,293.8c-6.8,16.9-16.2,31.4-28.4,43.5-12.1,12.1-26.6,21.6-43.5,28.4-16.9,6.8-35.6,10.2-55.8,10.2s-38.9-3.4-56-10.2c-17.1-6.8-31.7-16.3-43.9-28.4-12.1-12.1-21.6-26.6-28.4-43.5-6.8-16.9-10.2-35.6-10.2-55.8s3.4-38.8,10.2-55.7c6.8-16.9,16.3-31.5,28.4-43.6,12.1-12.1,26.7-21.6,43.9-28.4,17.1-6.8,35.8-10.2,56-10.2s38.9,3.4,55.8,10.2c16.9,6.8,31.4,16.3,43.5,28.4,12.2,12.1,21.6,26.7,28.4,43.6,6.8,16.9,10.2,35.5,10.2,55.7s-3.4,38.9-10.2,55.8Z"/> <g> <path class="lv-b" d="M841.2,238c0-18.3,3.1-35.1,9.2-50.5,6.2-15.3,14.7-28.5,25.7-39.5,11-11,24.2-19.6,39.7-25.7,15.5-6.2,32.4-9.2,50.7-9.2s35.1,3.1,50.5,9.2c15.3,6.2,28.5,14.7,39.5,25.7,11,11,19.6,24.2,25.7,39.5,6.2,15.3,9.2,32.1,9.2,50.5s-3.1,35.1-9.2,50.5c-6.2,15.3-14.7,28.5-25.7,39.5-11,11-24.1,19.6-39.5,25.7-15.3,6.2-32.1,9.2-50.5,9.2s-35.2-3.1-50.7-9.2c-15.5-6.2-28.7-14.7-39.7-25.7-11-11-19.6-24.1-25.7-39.5-6.2-15.3-9.2-32.1-9.2-50.5Z"/> <g> <path class="lv-a" d="M1086,238.3c0,17.4-2.9,33.2-8.7,47.7-5.7,14.5-13.8,26.9-24.3,37.4-10.4,10.3-22.9,18.5-37.4,24.3-7,2.9-14.5,5-22.3,6.5-.4.1-.9.2-1.4.2-1.7.3-3.4.5-5.1.9-6.1.7-12.2,1.2-18.6,1.2s-13.1-.4-19.3-1.2c-4-.6-8.1-1.4-11.9-2.2-6-1.4-11.7-3.2-17.2-5.4-3.6-1.4-7-3-10.4-4.7-4.2-2.1-8.1-4.5-11.8-7.1-1-.5-1.9-1.2-2.9-1.9-.6-.4-1.2-.9-1.7-1.2-2-1.5-3.9-3-5.7-4.7-1.6-1.5-3.2-3-4.8-4.6-10.4-10.4-18.5-22.9-24.4-37.4-2.8-6.9-4.8-14.1-6.3-21.6,10.6,3.1,24.8,5.5,60.3-10.9,33.2-15.4,73.6-.9,81.8,1.5,13.2,3.9,31.8,11.5,55.7.5,16.8-7.7,29.3-20.3,36.1-28.6.3,3.7.4,7.6.4,11.4Z"/> <circle class="lv-a" cx="888.2" cy="214.9" r="32"/> <circle class="lv-a" cx="927.6" cy="155.6" r="19.8"/> <circle class="lv-a" cx="954.7" cy="196.5" r="12.2"/> </g> </g> </g> </g> </g> </svg></a>
+    <ul>
+      <li><a href="#resumos">Resumos</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#diagnostico" class="cta">Diagnóstico</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div id="bubbles" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="kicker">G4 Valley 2026 · 29 a 31 de outubro</div>
+      <div class="titlebox">
+        <span class="tarja">O que a Lavoura conectou do</span>
+        <span class="impact">G4 Valley</span>
+        <div class="dias"><span>Dia 1</span><span>Dia 2</span><span>Dia 3</span><span>Insights</span></div>
+      </div>
+      <p class="lede">Três dias de palestras com 15 mil empresários do Brasil todo. Organizamos tudo o que aprendemos em resumos por assunto, insights de cada palestrante e um diagnóstico gratuito para a sua empresa.</p>
+      <div class="actions">
+        <a class="btn primary" href="#diagnostico">Fazer o diagnóstico</a>
+        <a class="btn ghost" href="#resumos">Baixar os resumos</a>
+      </div>
+    </div>
+    <div>
+      <svg class="connector" viewBox="0 0 440 300" role="img" aria-label="A Lavoura conectada ao G4 Valley">
+        <defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#8fb596"/><stop offset="1" stop-color="#e17c4c"/></linearGradient></defs>
+        <path id="cpath" class="path" d="M90 210 C170 210 170 90 250 90 S340 150 350 150" fill="none" stroke="url(#gl)" stroke-width="4" stroke-linecap="round"/>
+        <circle r="7" fill="#fdfdfd"><animateMotion dur="2.6s" repeatCount="indefinite" rotate="auto"><mpath href="#cpath"/></animateMotion></circle>
+        <g>
+          <circle cx="90" cy="210" r="62" fill="#394f3e" stroke="#fdfdfd" stroke-width="4"/>
+          <text x="90" y="205" text-anchor="middle" fill="#fdfdfd" font-family="Nunito,sans-serif" font-weight="900" font-size="22">Lavoura</text>
+          <text x="90" y="228" text-anchor="middle" fill="#C9D4CB" font-family="Nunito,sans-serif" font-weight="800" font-size="11">autosserviço</text>
+        </g>
+        <g>
+          <circle cx="350" cy="150" r="70" fill="#e17c4c" stroke="#fdfdfd" stroke-width="4"/>
+          <text x="350" y="146" text-anchor="middle" fill="#fdfdfd" font-family="Nunito,sans-serif" font-weight="900" font-size="24">G4</text>
+          <text x="350" y="172" text-anchor="middle" fill="#fdfdfd" font-family="Nunito,sans-serif" font-weight="900" font-size="20">Valley</text>
+        </g>
+        <g font-family="Nunito,sans-serif" font-weight="800" font-size="11" fill="#fdfdfd">
+          <rect x="200" y="22" width="96" height="26" rx="13" fill="rgba(255,255,255,.12)"/><text x="248" y="39" text-anchor="middle">marketing</text>
+          <rect x="150" y="250" width="86" height="26" rx="13" fill="rgba(255,255,255,.12)"/><text x="193" y="267" text-anchor="middle">cultura</text>
+          <rect x="250" y="236" width="70" height="26" rx="13" fill="rgba(255,255,255,.12)"/><text x="285" y="253" text-anchor="middle">IA</text>
+          <rect x="10" y="80" width="80" height="26" rx="13" fill="rgba(255,255,255,.12)"/><text x="50" y="97" text-anchor="middle">gestão</text>
+        </g>
+      </svg>
+      <div class="stats">
+        <div class="stat"><b data-count="3">3</b><span>dias de evento</span></div>
+        <div class="stat"><b data-count="15" data-suf=" mil">15 mil</b><span>empresários</span></div>
+        <div class="stat"><b data-count="10">10</b><span>palestrantes nos insights</span></div>
+        <div class="stat"><b data-count="18">18</b><span>perguntas no diagnóstico</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="about">
+  <div class="wrap">
+    <div>
+      <div class="kicker" style="color:#F6C3A6">O que é a Lavoura</div>
+      <h2 style="margin-top:6px">O lugar onde se cultivam bons sentimentos</h2>
+      <p style="margin-top:12px;color:#E5ECE6">A Lavoura é uma rede de lavanderias de autosserviço nascida em Boa Vista (RR). O nome veio da busca por um elemento comum a todo o Brasil que representasse acolhimento: o café, que é cultivado na lavoura. Em cada unidade, lavar roupa vira um momento bom do dia.</p>
+      <div class="chips"><span class="chip">Café de autosserviço</span><span class="chip">Mesa de coworking</span><span class="chip">Espaço kids</span><span class="chip">Poltronas confortáveis</span><span class="chip">O maior cesto da cidade</span></div>
+    </div>
+    <div class="note-card">
+      <h3>Por que este material existe</h3>
+      <p style="color:#E5ECE6;font-size:15px">Fomos ao G4 Valley aprender com quem está construindo empresas grandes no país. Em vez de guardar as anotações, organizamos tudo para compartilhar com franqueados, parceiros e com quem quer crescer junto com a gente.</p>
+      <p style="color:var(--mist);font-size:14px;margin:0">Curadoria: <b style="color:#fff">Deubson Albuquerque</b>, fundador da Lavoura.</p>
+    </div>
+  </div>
+</section>
+
+<section id="resumos">
+  <div class="wrap">
+    <div class="kicker">Resumos em PDF</div>
+    <h2 style="margin-top:6px">Os três dias e os insights</h2>
+    <p class="sub">Cada resumo é organizado por assunto, com diagramas para memorizar e as fontes para se aprofundar.</p>
+    <div class="docs">
+      <div class="doc"><img src="p1.jpg" alt="Capa do resumo do Dia 1"><h3>Dia 1</h3><p>Marketing, vendas e oferta, gargalos por fase, Kit Empresarial, liderança e cultura.</p><div class="meta">PDF · 22 páginas</div><div class="actions"><button class="btn primary small dl" data-file="G4_Valley_2026_Dia1_Lavoura.pdf" type="button">Baixar</button><a class="btn ghost small" href="G4_Valley_2026_Dia1_Lavoura.pdf" target="_blank" rel="noopener">Abrir</a></div><div class="status" role="status"></div></div>
+      <div class="doc"><img src="d2p1.jpg" alt="Capa do resumo do Dia 2"><h3>Dia 2</h3><p>Conteúdo do fundador (os 12 passos), cultura, partnership e IA, e o papel do fundador na estratégia.</p><div class="meta">PDF · 11 páginas</div><div class="actions"><button class="btn primary small dl" data-file="G4_Valley_2026_Dia2_Lavoura.pdf" type="button">Baixar</button><a class="btn ghost small" href="G4_Valley_2026_Dia2_Lavoura.pdf" target="_blank" rel="noopener">Abrir</a></div><div class="status" role="status"></div></div>
+      <div class="doc"><img src="d3p1.jpg" alt="Capa do resumo do Dia 3"><h3>Dia 3</h3><p>Mentoria e cases, franquia como modelo de escala, founder-led growth e como operar com IA.</p><div class="meta">PDF · 13 páginas</div><div class="actions"><button class="btn primary small dl" data-file="G4_Valley_2026_Dia3_Lavoura.pdf" type="button">Baixar</button><a class="btn ghost small" href="G4_Valley_2026_Dia3_Lavoura.pdf" target="_blank" rel="noopener">Abrir</a></div><div class="status" role="status"></div></div>
+      <div class="doc"><img src="insp1.jpg" alt="Capa do PDF de insights por palestrante"><h3>Insights</h3><p>As ideias centrais de dez palestrantes, de Alexandre Costa a Steve Wozniak.</p><div class="meta">PDF · 6 páginas</div><div class="actions"><button class="btn primary small dl" data-file="G4_Valley_2026_Insights_Lavoura.pdf" type="button">Baixar</button><a class="btn ghost small" href="G4_Valley_2026_Insights_Lavoura.pdf" target="_blank" rel="noopener">Abrir</a></div><div class="status" role="status"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="insights" style="background:var(--green)">
+  <div class="wrap">
+    <div class="kicker">Insights por palestrante</div>
+    <h2 style="margin-top:6px">O que cada um deixou</h2>
+    <p class="sub">Uma frase-âncora e as ideias principais de cada palestrante. Toque em "ver todos" para abrir a lista completa.</p>
+    <div class="ins" id="insgrid"></div>
+  </div>
+</section>
+
+<section id="diagnostico">
+  <div class="wrap">
+    <div class="kicker">Diagnóstico gratuito</div>
+    <h2 style="margin-top:6px">Onde a sua empresa trava?</h2>
+    <p class="sub">18 perguntas montadas a partir do que foi ensinado nos três dias. No fim, você recebe a nota em seis áreas, o gargalo típico da sua fase e setor, e o que melhorar na empresa e em você como líder.</p>
+    <div class="quiz" id="quiz" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="ig">
+  <div class="wrap">
+    <div>
+      <div style="font-size:14px;font-weight:900">Siga a Lavoura no Instagram</div>
+      <div class="h"><a href="https://www.instagram.com/lavanderialavourabr/" target="_blank" rel="noopener">@lavanderialavourabr</a></div>
+      <div style="font-size:14px">Bastidores da rede, expansão e os próximos resumos.</div>
+    </div>
+    <a class="btn" href="https://www.lavanderialavoura.com.br" target="_blank" rel="noopener" style="background:var(--green)">Seja um franqueado</a>
+  </div>
+</section>
+
+<div class="wrap fine">Material de estudo produzido pela Lavoura a partir de anotações feitas no G4 Valley 2026. Os conteúdos, slides e marcas apresentados pertencem ao G4 Educação e a seus respectivos palestrantes e autores. O diagnóstico é uma ferramenta de reflexão e não substitui uma consultoria.</div>
+
+<script>
+const INS = [{"n": "Alexandre Costa", "r": "Cacau Show", "c": "#e17c4c", "quote": "Primeiro vem a capacidade de vender, depois a estrutura para entregar o que foi prometido.", "i": ["Vender é o que move qualquer negócio. Primeiro a capacidade de vender, depois a estrutura para entregar.", "Cultura se constrói no dia a dia e pelo exemplo: mesmo com 25 mil colaboradores, ele segue visitando fábricas, fazendas e hotéis.", "Reputação é ativo. Quando a fábrica pegou fogo, o presidente da Nestlé ofereceu ajuda e o seguro pagou mais de R$ 150 milhões em 15 dias, o que ele atribui a anos fazendo as coisas direito.", "O empreendedor assume as consequências das próprias decisões e a responsabilidade de entregar.", "Qualidade não depende da cobrança do cliente: a empresa buscou a certificação FSSC 22000 sem exigência comercial.", "Cultura de dono: a Cacau Show tem 18 sócios, e os bônus de pessoas-chave viram participação societária.", "Reconhecer pessoas faz parte da gestão: ele fez pizza para cerca de 150 funcionários depois de uma conquista.", "Começou com US$ 500 e a ideia de chocolate de qualidade, com design e preço acessível. Hoje a marca vende experiência (hotéis, parque temático).", "Grandes oportunidades estão em necessidades não atendidas, como experiências tipo Disney, inacessíveis à maioria dos brasileiros.", "Planejamento importa, mas execução e adaptação importam mais.", "Toda oportunidade pode virar frente comercial: durante a palestra, vendeu pacotes do parque a empresários.", "Crescer exige coerência: ele trabalha de 75 a 80 horas por semana, como escolha de missão e não como regra."], "lav": "Experiência acima do produto: a Cacau Show vende chocolate e entrega experiência. A Lavoura lava roupa e entrega café, coworking e espaço kids."}, {"n": "Steve Wozniak", "r": "Cofundador da Apple", "c": "#2f8fc4", "quote": "Boa sociedade junta quem sabe fazer o que o outro não sabe.", "i": ["Quem avalia uma ideia precisa conhecer o cliente. A HP recusou o projeto cinco vezes, avaliado por quem não era a pessoa certa.", "O ambiente define o tamanho do que você imagina: foi no Homebrew Computer Club que ele viu o Altair e desenhou o que viraria o Apple I.", "Boa sociedade junta habilidades diferentes: Woz construía, Jobs vendia e Mike Markkula entrou com US$ 250 mil e o plano de negócios.", "Falta de recurso pode ser o melhor critério de projeto: ele resolvia cada projeto com o menor número de peças possível.", "Capacidade alta de construção com aderência baixa não faz sentido. A IA deve ser usada com profissionais revisando o resultado, e o mais importante é o cliente enxergar valor."], "lav": "Sociedade complementar: cada sócio cobrindo o que o outro não faz é a base de uma rede que cresce."}, {"n": "João Vitor", "r": "CPTO do G4 Business", "c": "#2f8fc4", "quote": "Produtividade individual não é melhora do resultado da empresa.", "i": ["Três perguntas sobre IA: ela consegue executar atividades do meu negócio? Quais? Quanto custa automatizar?", "Analise atividades, não profissões. As mais automatizáveis são feitas no computador, têm critérios objetivos e resultado verificável rápido.", "Poder automatizar não significa que vale a pena: a tecnologia precisa fazer sentido econômico.", "Há um gap entre a liderança, que já usa IA, e a operação. Sem capacitação, processo e aplicação prática, não há transformação (63% usam IA com frequência; 46% sentem que treinam algo que pode substituí-los).", "O medo da substituição é um desafio de cultura.", "A vantagem competitiva está em transformar IA em eficiência operacional e resultado econômico, não em apenas usá-la."], "lav": null}, {"n": "Alfredo Soares", "r": "Founder-led growth", "c": "#e17c4c", "quote": "Resultados não documentados são oportunidade desperdiçada.", "i": ["Founder-led growth não é virar influenciador: é transformar posicionamento, experiência e autoridade em oportunidades comerciais.", "O objetivo é alcançar clientes potenciais, não seguidores. Relevância comercial pesa mais que popularidade.", "Autoridade não é o que você diz sobre si.", "Conteúdo é ferramenta comercial: responde objeções e influencia decisões de compra. No B2B, alcance entre decisores vale mais que curtidas.", "Repita a comunicação de cases reais com consistência. Documentar e distribuir resultados para as pessoas certas transforma experiência em autoridade, e autoridade em receita."], "lav": "Cada unidade inaugurada e cada franqueado batendo meta é um case. Documentar e repetir é o conteúdo que mais vende a franquia."}, {"n": "Theo Orosco", "r": "Mentoria e cases", "c": "#7A4FD0", "quote": "Quem nunca fez cliente oculto na própria empresa não sabe onde perde negociações.", "i": ["Para fazer diferença, é preciso se arriscar. O empreendedor deve gerar experiência e melhorar sempre os detalhes.", "Nada vale mais no marketing hoje que uma comunidade que te dá atenção.", "Quem nunca fez cliente oculto na própria empresa não sabe onde perde negociações.", "Mentoria acelera o crescimento ao ampliar a visão e questionar certezas.", "Valor percebido importa tanto quanto valor entregue: o cliente precisa entender o benefício e o impacto.", "A jornada do cliente revela oportunidades de melhoria, novas receitas e expansão.", "Autoridade gera confiança quando influencia a decisão do cliente.", "Execução exige priorização: comece por quick wins, de implementação rápida e impacto perceptível."], "lav": "Cliente oculto nas unidades: passar pela jornada inteira (chegar, pagar, lavar, esperar) como cliente mostra onde a experiência perde."}, {"n": "Florian Bartunek", "r": "Em conversa com Tallis Gomes", "c": "#394f3e", "quote": "Um olho no caixa, outro no cliente.", "i": ["Não saber o que vai acontecer às vezes é melhor, porque senão você não faria nada.", "Homenageie os gladiadores da batalha diária, não os reis. Quem olha para o Brasil não pode ficar aflito.", "Escolha poucas boas empresas e fique nelas por décadas. O ganho é exponencial, e quase ninguém enxerga o longo prazo.", "Com o consumidor mudando e a IA derrubando barreiras de entrada, quem dura é quem tem cultura. Cultura é o dono e não dá para copiar de fora.", "O negócio precisa funcionar sem o dono. Se tudo para quando você sai por um mês, algo está errado.", "A empresa é como um filho: tratar bem a esposa e o garçom passa a melhor impressão, e isso se replica.", "Sem gerar valor para o cliente, nada adianta. Um olho no caixa, outro no cliente.", "Negócio longevo exige menos egoísmo: dividir as coisas certas, criar processos e trazer gente boa."], "lav": "O teste do mês fora: se a unidade e a franqueadora funcionam sem o fundador por 30 dias, o modelo é franqueável de verdade."}, {"n": "Roberto Sallouti", "r": "BTG, em conversa com Tallis Gomes", "c": "#2f8fc4", "quote": "É melhor ter menos de um negócio maior.", "i": ["Foque no que você não controla: sorte para a chance aparecer e competência para agarrá-la.", "Busque oportunidades assimétricas e erre do tamanho certo. Resiliência e teimosia têm uma linha tênue.", "A essência do partnership é abrir mão de parte do negócio para ter gente com você na trincheira. É melhor ter menos de um negócio maior.", "Partnership é fácil de falar e difícil de fazer: exige deixar de ser chefe para ser líder. É um estado de espírito, não só um modelo."], "lav": null}, {"n": "Erich Shibata", "r": "Cimed", "c": "#e17c4c", "quote": "Com vínculo, ninguém discute os R$ 2.", "i": ["Marca pessoal é estratégia exponencial: coloque a cara e deixe as coisas acontecerem.", "Vínculo cria vantagem, como no comércio local, onde você conhece o dono e sabe a quem recorrer. A Cimed vende commodity, e o que segura o cliente é o vínculo.", "Num genérico de R$ 13, a Cimed cobra R$ 15. Com vínculo, ninguém discute os R$ 2.", "Dono que aparece gera confiança, mas só se sustenta se a operação entregar. Aparecer sem governança gera risco."], "lav": "Lavar roupa também é commodity. O vínculo com a marca e com quem está por trás dela é o que segura o cliente no bairro."}, {"n": "Bruno Nardon", "r": "Os gargalos de cada fase de uma empresa", "c": "#2f8fc4", "quote": "O setor define onde dói.", "i": ["O que mata o seu negócio é o que você não sabe sobre o que você não sabe.", "O padrão se repete por fase: ideação (informal ou não validada), tração (crescer antes de ter processo), escala (dependência de pessoas-chave), maturidade (portfólio inchado, marca diluída) e legado (conhecimento concentrado, sucessão mal resolvida).", "Empresas na mesma fase travam em pontos diferentes: o G4 em marketing e demanda, uma fábrica em estoque e produção, um distribuidor em carteira e crédito.", "A dependência do fundador aparece na ideação e volta no legado. Se não for resolvida na escala, vira risco para a continuidade."], "lav": null}, {"n": "Diogo Corona", "r": "Smart Fit", "c": "#394f3e", "quote": "Para quem vamos fazer, quem vai fazer e o que vamos fazer.", "i": ["O objetivo é democratizar o acesso ao fitness de alto padrão, com preço acessível e um modelo que funciona igual em centenas de unidades.", "Todo projeto precisa responder a três perguntas: para quem vamos fazer, quem vai fazer e o que vamos fazer.", "As pessoas perdem o engajamento quando o esforço é invisível, não há placar de evolução e elas não percebem o impacto do próprio trabalho."], "lav": "A Smart Fit é a referência mais próxima do nosso modelo: padrão alto, preço acessível e a mesma experiência em todas as unidades."}];
+
+/* ---------- hero motion ---------- */
+(function(){
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const box = document.getElementById('bubbles');
+  if(!reduce){
+    for(let i=0;i<16;i++){
+      const s=document.createElement('div'); s.className='b';
+      const size=14+Math.random()*70;
+      s.style.width=s.style.height=size+'px';
+      s.style.left=(Math.random()*100)+'%';
+      s.style.animationDuration=(9+Math.random()*12)+'s';
+      s.style.animationDelay=(-Math.random()*18)+'s';
+      box.appendChild(s);
+    }
+    document.querySelectorAll('[data-count]').forEach(el=>{
+      const end=+el.dataset.count, suf=el.dataset.suf||''; const t0=performance.now(), d=1400;
+      function step(t){const k=Math.min(1,(t-t0)/d); const e=1-Math.pow(1-k,3); el.textContent=Math.round(end*e)+suf; if(k<1) requestAnimationFrame(step);}
+      requestAnimationFrame(step);
+    });
+  }
+})();
+
+/* ---------- downloads ---------- */
+function triggerDownload(url, filename){
+  const a=document.createElement('a'); a.href=url; a.download=filename;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+async function saveFile(filename, data, st){
+  try{
+    const blob = data instanceof Blob ? data : new Blob([data], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    triggerDownload(url, filename);
+    setTimeout(()=>URL.revokeObjectURL(url), 2000);
+    if(st) st.textContent='Pronto. Arquivo baixado.'; return true;
+  }catch(e){
+    if(st) st.textContent='Não foi possível baixar. Tente copiar o texto da tela.';
+    return false;
+  }
+}
+document.querySelectorAll('.dl').forEach(btn=>{
+  const st = btn.closest('.doc').querySelector('.status');
+  btn.addEventListener('click', ()=>{
+    triggerDownload(btn.dataset.file, btn.dataset.file);
+    st.textContent='Baixando… se não começar, use "Abrir".';
+  });
+});
+
+/* ---------- insights ---------- */
+(function(){
+  const g=document.getElementById('insgrid');
+  INS.forEach(s=>{
+    const c=document.createElement('article'); c.className='card'; c.style.setProperty('--c', s.c==='#394f3e' ? '#8fb596' : s.c==='#2f8fc4' ? '#5cb5e6' : s.c==='#7A4FD0' ? '#B79AEB' : s.c);
+    const top=s.i.slice(0,3), rest=s.i.slice(3);
+    c.innerHTML = `<div class="who"><b></b><span></span></div><q></q><ul></ul>` + (rest.length?`<details><summary>Ver todos (${s.i.length})</summary><ul></ul></details>`:'') + (s.lav?`<div class="lav"><b>Na Lavoura:</b> <span></span></div>`:'');
+    c.querySelector('.who b').textContent=s.n; c.querySelector('.who span').textContent=s.r; c.querySelector('q').textContent=s.quote;
+    const uls=c.querySelectorAll('ul');
+    top.forEach(t=>{const li=document.createElement('li'); li.textContent=t; uls[0].appendChild(li);});
+    rest.forEach(t=>{const li=document.createElement('li'); li.textContent=t; uls[1].appendChild(li);});
+    if(s.lav) c.querySelector('.lav span').textContent=s.lav;
+    g.appendChild(c);
+  });
+})();
+
+/* ---------- diagnóstico ---------- */
+const STAGES=["Ideação e sobrevivência","Tração","Escala","Maturidade","Legado"];
+const STAGE_DESC=["Ainda validando o produto e o caixa","Vendendo bem, estrutura correndo atrás","Crescendo, com time e unidades se multiplicando","Empresa estabelecida, várias frentes","Empresa consolidada, pensando em sucessão"];
+const GAR={
+ "Comércio B2C":["Sortimento","Reposição e ruptura","Criação e integração de canais","Portfólio de marcas e canibalização de canais","Padrão de execução e sucessão do comando"],
+ "Serviços profissionais":["Captação e entrega dependentes do founder","Desvio de escopo e inconsistência nas entregas","Dependência de A-players e desenvolvimento do time","Concentração de clientes e produtização de ofertas","Concentração de capital relacional e técnico"],
+ "Tecnologia (SaaS)":["Busca de product-market fit","Onboarding ruim, churn precoce e dívidas técnicas","CS não cresce na mesma escala das vendas","Disputa de roadmap e diversificação de clientes","Arquitetura legada e risco de disrupção"],
+ "Indústria de bens de consumo":["Capacidade instável e qualidade inconsistente","Previsão de demanda desalinhada com a produção","O padrão que sustentou o crescimento quebra","Portfólio inchado e concentração de clientes","Ativos industriais e mão de obra técnica envelhecidos"],
+ "Comércio B2B":["Carteira e crédito informais","Crédito e cobrança sem processo","Concentração em grandes clientes e vendedores-chave","Comoditização por desconto sem guardrails","Carteira personalista e sucessão de vendedores"],
+ "Alimentação":["Ficha técnica e CMV não padronizados","Nova unidade ou delivery antes de dominar o CMV","Supervisão do founder não escala","Engenharia de cardápio em novas praças","Qualidade concentrada no chef ou fundador"],
+ "Saúde e bem-estar":["Protocolo e capacidade mal dimensionados","Demanda gerada antes de a agenda comportar","Qualidade não escala entre profissionais e unidades","Diluição do padrão em novas unidades","Carteira concentrada em profissionais-chave"],
+ "Educação e treinamentos":["Metodologia dependente do fundador-mentor","Matrícula escalada antes de padronizar a entrega","Dependência de professores-chave","Diluição de foco em novos formatos","Metodologia concentrada na marca pessoal"],
+ "Serviços gerais e terceirização":["Entrega dependente da supervisão do founder","Contratos crescem sem checklist estruturado","Liderança de campo não escala","Concentração em poucos contratos grandes","Padrão de execução dependente de supervisores-chave"],
+ "Turismo, hotelaria e entretenimento":["Experiência e precificação não testadas","OTAs multiplicadas sem revenue management","Padrão de serviço não escala entre unidades","Diluição de marca em novos formatos","Hospitalidade dependente de líderes seniores"],
+ "Construção civil":["Orçamento impreciso e caixa negativo da obra","Múltiplas obras sem PMO estruturado","Subcontratados variáveis e produtividade de homem-hora","Exposição à variação de insumos","Conhecimento de campo concentrado no mestre de obra"],
+ "Transporte e logística":["Capacidade e roteirização informais","SLA assinado sem capacidade confiável","Escassez e turnover de motoristas","Diversificação de nichos e complexidade","Conhecimento de malha concentrado e frota envelhecida"],
+ "Imobiliário":["Precificação de ativos não validada no mercado","Portfólio cresce antes da cobrança madura","Dependência de corretores-chave","Ciclos de mercado distintos simultâneos","Carteira concentrada em relacionamentos de corretores"],
+ "Agronegócio":["Manejo não validado e caixa de safra apertado","Área expandida sem hedge estruturado","Armazenagem não acompanha o volume","Verticalização aumenta complexidade e risco","Sucessão familiar e técnica represada"],
+ "Serviços financeiros":["Modelo de risco e crédito não testado","Aquisição agressiva antes do controle de risco","Compliance e antifraude não escalam","Riscos combinados e incentivos mal desenhados","Talentos de risco e compliance concentrados"],
+ "Indústria de insumos e transformação":["Yield e qualidade instáveis","Contrato grande antes de estabilizar o processo","Exposição a energia e câmbio sem hedge","Escopo invisível e CAPEX mal dimensionado","Conhecimento técnico concentrado e ativos envelhecidos"],
+ "Energia e utilidades":["Licenciamento e CAPEX pré-operacional","Perdas técnicas reveladas na operação real","Capacidade expandida antes da confiabilidade","Portfólio regulado e livre em múltiplas frentes","Conhecimento técnico concentrado e ativos envelhecidos"],
+ "Outro setor":["Negócio ainda informal ou não validado","Crescer antes de ter processo","Dependência de pessoas-chave","Portfólio inchado e marca diluída","Conhecimento concentrado e sucessão mal resolvida"]
+};
+const DIMS=[
+ {k:"mkt",n:"Marketing e demanda",c:"#e17c4c"},
+ {k:"ven",n:"Vendas e oferta",c:"#f2c744"},
+ {k:"ges",n:"Gestão e estrutura",c:"#5cb5e6"},
+ {k:"lid",n:"Liderança e dependência do dono",c:"#B79AEB"},
+ {k:"cul",n:"Cultura e cliente",c:"#8fb596"},
+ {k:"ia",n:"IA e processos",c:"#e8a0c0"}
+];
+const Q=[
+ {d:"mkt",q:"Como é a produção de conteúdo da empresa?",o:["Quase não publicamos","Publicamos quando dá, sem rotina","Publicamos toda semana, mas sem método","Temos volume com método: muito conteúdo capturado do dia a dia, cortes reaproveitados e séries"]},
+ {d:"mkt",q:"O dono ou fundador aparece como rosto da marca?",o:["Não aparece","Raramente, sem estratégia","Às vezes, mas sem constância","Aparece com constância, documentando resultados e cases reais"]},
+ {d:"mkt",q:"Vocês têm ações para cada momento do cliente: atrair, primeira compra, recompra e fidelização?",o:["Só tentamos atrair","Atraímos e vendemos, mas não reativamos","Temos ações em três dos quatro momentos","Temos ações nos quatro, com mídia paga, própria, ganha e experiências"]},
+ {d:"ven",q:"Você sabe as taxas de conversão entre cada etapa da venda (contato, conversa, proposta, fechamento)?",o:["Não medimos","Sabemos só o total de vendas","Medimos algumas etapas de vez em quando","Medimos todas as etapas e sabemos onde está o gargalo"]},
+ {d:"ven",q:"Como está a sua oferta?",o:["Competimos basicamente por preço","Explicamos o produto, mas não o resultado","Mostramos o resultado, mas com pouca prova","Mostra resultado, prova, rapidez e pouco esforço para o cliente"]},
+ {d:"ven",q:"Como a indicação funciona na empresa?",o:["Acontece por acaso","Pedimos de vez em quando","Pedimos com algum incentivo","É um canal: pedimos no pico, com link, recompensa e meta própria"]},
+ {d:"ges",q:"Entre os sócios, está claro quem decide, quem executa e quem responde?",o:["Não, e já gerou conflito","Combinado de boca","Parcialmente escrito","Sim: acordo de sócios, alçadas e ritos definidos"]},
+ {d:"ges",q:"Como é o planejamento do ano?",o:["Não temos","Temos muitas frentes ao mesmo tempo","Temos prioridades, mas mudam toda hora","Poucas prioridades claras, com metas e orçamento"]},
+ {d:"ges",q:"Como os indicadores são acompanhados?",o:["Não acompanhamos","Olhamos quando algo dá errado","Mensalmente, sem rotina de correção","Toda semana: meta, indicador, correção e responsável"]},
+ {d:"lid",q:"Se você ficasse um mês fora, a empresa…",o:["Pararia","Funcionaria mal","Funcionaria com alguns ajustes","Funcionaria normalmente"]},
+ {d:"lid",q:"Quanto das decisões do dia a dia passa por você?",o:["Mais de 80%","Entre 50% e 80%","Entre 20% e 50%","Menos de 20%"]},
+ {d:"lid",q:"Seus líderes e pessoas-chave têm autonomia e incentivo de dono?",o:["Não temos líderes","Têm cargo, mas não decidem","Decidem algumas coisas, com variável simples","Decidem, têm metas e incentivo de longo prazo ou participação"]},
+ {d:"cul",q:"Existem rituais que se repetem na empresa (reuniões, celebrações, momentos de ouvir o cliente)?",o:["Não","Acontecem de vez em quando","Temos alguns fixos","Sim, com agenda e responsável, e todo mundo conhece"]},
+ {d:"cul",q:"Quem é reconhecido na empresa?",o:["Ninguém em especial","Quem fala mais alto ou está há mais tempo","Quem bate meta de venda","Quem atende, resgata e surpreende o cliente, com placar de evolução visível"]},
+ {d:"cul",q:"Como vocês ouvem o cliente?",o:["Só quando ele reclama","Pesquisa de vez em quando","Medimos satisfação ou NPS com frequência","NPS acompanhado de perto, cliente oculto e ajustes na jornada"]},
+ {d:"ia",q:"Como a empresa usa inteligência artificial?",o:["Não usa","Algumas pessoas usam por conta própria","Usamos em alguns processos","Processos redesenhados com IA, com indicador e impacto medido no resultado"]},
+ {d:"ia",q:"Os processos principais estão documentados e padronizados?",o:["Está tudo na cabeça das pessoas","Alguns estão escritos","A maioria está escrita, mas pouco seguida","Documentados, seguidos e revisados"]},
+ {d:"ia",q:"O time foi capacitado para trabalhar com IA?",o:["Não","Só a liderança usa","Alguns treinamentos pontuais","Todo o time tem acesso, treinamento e casos práticos"]}
+];
+const REC={
+ mkt:{tit:"Marketing e demanda",emp:["Adote a regra 50/30/20: metade do conteúdo capturado do dia a dia, 30% reaproveitado em cortes, 20% produzido (Dia 1).","Monte o empilhamento: uma ação para cada momento do cliente, de atrair a fidelizar (Dia 1).","Grave ganchos, miolos e chamadas separados e teste combinações antes de aumentar o investimento (Dia 1).","Meça encaminhamentos, não curtidas: conteúdo que a pessoa envia vale mais (Dia 3)."],voc:["Apareça como rosto da empresa e documente resultados reais com constância: resultado não documentado é oportunidade perdida (Alfredo Soares).","Suba a escada da autoridade um degrau por vez: nicho local, cidade, estado, setor (Dia 3).","Crie vínculo com séries, não posts soltos. Primeiro você começa, depois melhora (Erich Shibata)."]},
+ ven:{tit:"Vendas e oferta",emp:["Meça a conversão entre cada etapa da venda antes de dobrar o investimento em marketing (Dia 1).","Reescreva a oferta pela equação de valor: aumente resultado e probabilidade percebida, reduza tempo de espera e esforço (Dia 1).","Trate indicação como canal: peça no pico, dê link e recompensa, defina meta (Dia 1).","Faça cliente oculto na própria empresa para ver onde perde negociações (Theo Orosco)."],voc:["Primeiro a capacidade de vender, depois a estrutura para entregar (Alexandre Costa).","Tangibilize o valor: o cliente precisa enxergar benefício e impacto, não só o produto (Theo Orosco)."]},
+ ges:{tit:"Gestão e estrutura",emp:["Escreva o acordo de sócios e uma matriz de alçadas: quem decide, quem executa, quem responde (Kit Empresarial, Dia 1).","Planeje o ano com no máximo três prioridades e ataque primeiro a maior restrição (Dia 1).","Crie a rotina semanal: compromisso, execução, indicador e correção (Dia 1)."],voc:["Responda as quatro perguntas da estratégia: a quem servir, como vencer, onde jogar e o que não fazer (Antonio Nápole, Dia 2).","Evite o desespero disfarçado de produtividade: uma frente de cada vez (Dia 1)."]},
+ lid:{tit:"Liderança e dependência do dono",emp:["Distribua responsabilidades com organograma e matriz RACI e reduza as decisões que passam por você (Dia 1).","Dê incentivo de dono às pessoas-chave: variável, participação ou partnership (Roberto Sallouti, Alexandre Costa).","Transforme o conhecimento das pessoas-chave em processo escrito (Bruno Nardon)."],voc:["Faça o teste do mês fora: o que pararia se você saísse por 30 dias? (Florian Bartunek)","Escolha em qual das quatro cadeiras você senta: fundador, CEO, presidente do conselho ou operador (Dia 2).","Combine regras de retirada e reinvestimento para resolver o conflito entre você como pessoa e como empresário (Dia 2)."]},
+ cul:{tit:"Cultura e cliente",emp:["Defina rituais fixos: ouvir o cliente, celebrar quem retém, acompanhar o NPS com lupa (Dia 1).","Torne o esforço visível com placar de evolução: sem isso, o time perde o engajamento (Diogo Corona).","Reconheça publicamente quem atende, resgata e surpreende o cliente (Dia 1)."],voc:["Cultura é o dono: seja o exemplo do comportamento que quer ver (Florian Bartunek, Alexandre Costa).","Pergunte se a cultura atual reflete onde a empresa quer chegar. Se não, mudar é responsabilidade sua (Marcelo Toledo)."]},
+ ia:{tit:"IA e processos",emp:["Liste atividades, não cargos, que acontecem no computador e têm resultado verificável e rápido (João Vitor).","Escolha um processo, defina o indicador, rode uma prova de conceito e leve o resultado para a DRE (Dia 3).","Dê acesso e capacitação a todo o time e trate o medo da substituição como tema de cultura (Dia 3)."],voc:["Passe de usar IA para operar com IA: processo redesenhado, contexto compartilhado, resultado acompanhado (Dia 3).","Pergunte: o que acontece se o meu concorrente implementar IA melhor e mais rápido? (Dia 3)"]}
+};
+const SECTORS=Object.keys(GAR);
+const state={step:0, stage:null, sector:null, ans:Array(Q.length).fill(null)};
+const quiz=document.getElementById('quiz');
+const TOTAL=Q.length+2;
+
+function el(tag, attrs={}, text){const e=document.createElement(tag); for(const k in attrs){ if(k==='class') e.className=attrs[k]; else e.setAttribute(k,attrs[k]); } if(text!=null) e.textContent=text; return e;}
+
+function render(){
+  quiz.innerHTML='';
+  if(state.step===0) return renderIntro();
+  if(state.step===TOTAL+1) return renderResult();
+  const idx=state.step;
+  const meta=el('div',{class:'qmeta'}); meta.append(el('span',{}, `Pergunta ${idx} de ${TOTAL}`));
+  let title, opts, sel, onPick, tag;
+  if(idx===1){ tag='Contexto'; title='Em que fase a sua empresa está?'; opts=STAGES.map((s,i)=>s+' — '+STAGE_DESC[i]); sel=state.stage; onPick=i=>state.stage=i; }
+  else if(idx===2){ tag='Contexto'; title='Qual é o setor que mais se parece com o seu?'; opts=SECTORS; sel=state.sector; onPick=i=>state.sector=i; }
+  else { const q=Q[idx-3]; tag=DIMS.find(d=>d.k===q.d).n; title=q.q; opts=q.o; sel=state.ans[idx-3]; onPick=i=>state.ans[idx-3]=i; }
+  meta.append(el('span',{}, tag));
+  const bar=el('div',{class:'bar'}); const fill=el('i'); fill.style.width=((idx-1)/TOTAL*100)+'%'; bar.append(fill);
+  const h=el('h3',{id:'qt'},title);
+  const list=el('div',{class:'opts',role:'radiogroup','aria-labelledby':'qt'});
+  opts.forEach((o,i)=>{
+    const b=el('button',{type:'button',class:'opt'+(sel===i?' sel':''),role:'radio','aria-checked':sel===i?'true':'false'});
+    b.append(el('span',{class:'dot','aria-hidden':'true'}), el('span',{},o));
+    b.addEventListener('click',()=>{ onPick(i); state.step++; render(); quiz.querySelector('.opt,.qbtn')?.focus({preventScroll:true}); });
+    list.append(b);
+  });
+  if(idx===2){ list.style.gridTemplateColumns='repeat(auto-fill,minmax(220px,1fr))'; }
+  const nav=el('div',{class:'qnav'});
+  const back=el('button',{type:'button',class:'qbtn'},'Voltar'); back.addEventListener('click',()=>{state.step--; render();});
+  const next=el('button',{type:'button',class:'qbtn go'}, idx===TOTAL?'Ver resultado':'Avançar'); next.disabled = sel==null;
+  next.addEventListener('click',()=>{state.step++; render();});
+  nav.append(back,next);
+  quiz.append(meta,bar,h,list,nav);
+}
+
+function renderIntro(){
+  quiz.append(el('span',{class:'dimtag'},'Leva cerca de 4 minutos'));
+  const h=el('h3',{},'Diagnóstico de empresa · G4 Valley 2026'); h.style.marginTop='10px'; quiz.append(h);
+  const p=el('p',{},'Responda pensando em como a empresa está hoje, não em como gostaria que estivesse. Não existe resposta certa: o objetivo é achar o próximo gargalo.'); p.style.marginTop='8px'; quiz.append(p);
+  const g=el('div',{class:'intro-list'});
+  [['2 perguntas','de contexto: fase e setor'],['18 perguntas','em seis áreas da empresa'],['Resultado','nota por área, gargalo típico e plano de ação']].forEach(([a,b])=>{const d=el('div'); d.append(el('b',{},a), el('span',{},b)); g.append(d);});
+  quiz.append(g);
+  const go=el('button',{type:'button',class:'qbtn go'},'Começar o diagnóstico'); go.addEventListener('click',()=>{state.step=1; render();});
+  quiz.append(go);
+}
+
+function scores(){
+  return DIMS.map(d=>{ const qs=Q.map((q,i)=>[q,i]).filter(([q])=>q.d===d.k); const s=qs.reduce((a,[q,i])=>a+(state.ans[i]||0),0); return {...d, pct:Math.round(s/(qs.length*3)*100)}; });
+}
+function lista(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' e '+a[a.length-1];}
+function level(p){ return p<40?{t:'Base em construção',c:'#c0504d'}:p<70?{t:'Em tração, com gargalos',c:'#d98a2b'}:{t:'Pronta para escalar',c:'#3f8a55'}; }
+
+function radar(sc){
+  const ns='http://www.w3.org/2000/svg', cx=190, cy=150, R=95;
+  const s=document.createElementNS(ns,'svg'); s.setAttribute('viewBox','0 0 380 300'); s.setAttribute('class','ring'); s.setAttribute('role','img'); s.setAttribute('aria-label','Radar das seis áreas');
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/sc.length; return [cx+Math.cos(a)*r, cy+Math.sin(a)*r];};
+  for(let k=1;k<=4;k++){ const p=document.createElementNS(ns,'polygon'); p.setAttribute('points',sc.map((_,i)=>pt(i,R*k/4).join(',')).join(' ')); p.setAttribute('fill','none'); p.setAttribute('stroke','#DDE5DE'); s.append(p); }
+  const poly=document.createElementNS(ns,'polygon'); poly.setAttribute('points',sc.map((d,i)=>pt(i,Math.max(6,R*d.pct/100)).join(',')).join(' ')); poly.setAttribute('fill','rgba(225,124,76,.28)'); poly.setAttribute('stroke','#e17c4c'); poly.setAttribute('stroke-width','2.5'); s.append(poly);
+  const short=['Marketing','Vendas','Gestão','Liderança','Cultura','IA'];
+  sc.forEach((d,i)=>{ const [x,y]=pt(i,R+20); const t=document.createElementNS(ns,'text'); t.setAttribute('x',x); t.setAttribute('y',y+4); t.setAttribute('text-anchor', Math.abs(x-cx)<10?'middle':(x>cx?'start':'end')); t.setAttribute('font-size','13'); t.setAttribute('font-weight','900'); t.setAttribute('fill','#253530'); t.setAttribute('font-family','Nunito,sans-serif'); t.textContent=short[i]; const ts=document.createElementNS(ns,'tspan'); ts.setAttribute('x',x); ts.setAttribute('dy','15'); ts.setAttribute('fill',level(d.pct).c); ts.textContent=d.pct; t.append(ts); s.append(t); });
+  return s;
+}
+
+function renderResult(){
+  const sc=scores(); const avg=Math.round(sc.reduce((a,d)=>a+d.pct,0)/sc.length); const lv=level(avg);
+  const weak=[...sc].sort((a,b)=>a.pct-b.pct); const gaps=weak.slice(0,3).filter((d,i)=>i<2||d.pct<70);
+  const strong=sc.filter(d=>d.pct>=70);
+  const top=el('div',{class:'res-top'});
+  top.append(radar(sc));
+  const right=el('div');
+  right.append(el('span',{class:'dimtag'},'Seu resultado'));
+  const h=el('h3',{},`Nota geral: ${avg} de 100`); h.style.marginTop='10px'; right.append(h);
+  const lvb=el('span',{class:'lvl'},lv.t); lvb.style.background=lv.c; lvb.style.marginTop='6px'; right.append(lvb);
+  const sector=SECTORS[state.sector], stage=STAGES[state.stage];
+  const p=el('p',{}, `Fase: ${stage}. Setor: ${sector}. Seus maiores pontos de atenção: ${lista(gaps.map(g=>g.n))}.`); p.style.marginTop='10px'; right.append(p);
+  if(strong.length){ const p2=el('p',{},'Pontos fortes: '+lista(strong.map(s=>s.n))+'.'); p2.style.color='#3f8a55'; p2.style.fontWeight='800'; right.append(p2); }
+  top.append(right); quiz.append(top);
+
+  const dims=el('div',{class:'dims'});
+  sc.forEach(d=>{ const b=el('div',{class:'dim'}); const t=el('div',{class:'t'}); t.append(el('b',{},d.n), el('span',{},d.pct)); const m=el('div',{class:'m'}); const i=el('i'); i.style.width=d.pct+'%'; i.style.background=level(d.pct).c; m.append(i); b.append(t,m); dims.append(b); });
+  quiz.append(dims);
+
+  const sb=el('div',{class:'stagebox'});
+  sb.append(el('h4',{},'O gargalo típico da sua fase e setor'));
+  sb.append(el('p',{},`"O que mata o seu negócio é o que você não sabe sobre o que você não sabe." Pela tabela de gargalos apresentada no G4 Valley, empresas do setor "${sector}" costumam travar assim:`));
+  const tw=el('div',{class:'tablewrap'}); const tb=el('table');
+  const si=state.stage;
+  [[`Agora (${stage})`, GAR[sector][si]], si<4?[`Próxima fase (${STAGES[si+1]})`, GAR[sector][si+1]]:null].filter(Boolean).forEach(([a,b])=>{ const tr=el('tr'); tr.append(el('td',{},a), el('td',{},b)); tb.append(tr); });
+  tw.append(tb); sb.append(tw);
+  const nard = si>=2 ? 'Atenção: na escala, a dependência de pessoas-chave e do fundador precisa ser resolvida, ou vira risco de continuidade (Bruno Nardon).' : 'Prepare a próxima fase antes de chegar nela: estrutura atrasada é o gargalo mais comum de quem cresce rápido.';
+  const pn=el('p',{},nard); pn.style.margin='10px 0 0'; pn.style.color='#C9D4CB'; sb.append(pn);
+  quiz.append(sb);
+
+  const ht=el('h3',{},'O que melhorar, por prioridade'); ht.style.marginTop='22px'; quiz.append(ht);
+  gaps.forEach((g,n)=>{
+    const r=REC[g.k]; const box=el('div',{class:'gap'});
+    box.append(el('span',{class:'dimtag'},`Prioridade ${n+1} · nota ${g.pct}`));
+    const h4=el('h4',{},r.tit); h4.style.marginTop='8px'; box.append(h4);
+    const cols=el('div',{class:'cols'});
+    const a=el('div'); a.append(el('h5',{},'Na empresa')); const ua=el('ul'); r.emp.forEach(x=>ua.append(el('li',{},x))); a.append(ua);
+    const b=el('div'); b.append(el('h5',{},'Em você, como líder')); const ub=el('ul'); r.voc.forEach(x=>ub.append(el('li',{},x))); b.append(ub);
+    cols.append(a,b); box.append(cols); quiz.append(box);
+  });
+
+  const fin=el('div',{class:'stagebox'}); fin.style.background='#394f3e';
+  fin.append(el('h4',{},'Por onde começar amanhã'));
+  fin.append(el('p',{},'Não saia querendo fazer tudo. Escolha uma ação da prioridade 1 que dê resultado visível em poucas semanas (uma vitória rápida), depois melhore o que já existe e só então estruture o resto. Refaça este diagnóstico daqui a 90 dias para ver a evolução.'));
+  quiz.append(fin);
+
+  const nav=el('div',{class:'qnav'});
+  const again=el('button',{type:'button',class:'qbtn'},'Refazer o diagnóstico'); again.addEventListener('click',()=>{state.step=0; state.stage=null; state.sector=null; state.ans=Array(Q.length).fill(null); render(); document.getElementById('diagnostico').scrollIntoView();});
+  const save=el('button',{type:'button',class:'qbtn go'},'Baixar meu plano (.txt)');
+  const st=el('div',{class:'status',role:'status'}); st.style.color='#5a7a61';
+  save.addEventListener('click', async()=>{ save.disabled=true; await saveFile('Diagnostico_G4_Valley_Lavoura.txt', planText(sc,avg,lv,gaps,stage,sector), st); save.disabled=false; });
+  nav.append(again,save); quiz.append(nav, st);
+  document.getElementById('diagnostico').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+}
+
+function planText(sc,avg,lv,gaps,stage,sector){
+  const L=[];
+  L.push('DIAGNÓSTICO DE EMPRESA · G4 VALLEY 2026','Material da Lavoura · @lavanderialavourabr','');
+  L.push(`Fase: ${stage}`,`Setor: ${sector}`,`Nota geral: ${avg}/100 (${lv.t})`,'');
+  L.push('NOTAS POR ÁREA'); sc.forEach(d=>L.push(`- ${d.n}: ${d.pct}/100`)); L.push('');
+  const si=state.stage; L.push('GARGALO TÍPICO', `- Agora: ${GAR[sector][si]}`); if(si<4) L.push(`- Próxima fase: ${GAR[sector][si+1]}`); L.push('');
+  gaps.forEach((g,n)=>{ const r=REC[g.k]; L.push(`PRIORIDADE ${n+1}: ${r.tit.toUpperCase()} (nota ${g.pct})`,'Na empresa:'); r.emp.forEach(x=>L.push('- '+x)); L.push('Em você, como líder:'); r.voc.forEach(x=>L.push('- '+x)); L.push(''); });
+  L.push('POR ONDE COMEÇAR','Escolha uma ação da prioridade 1 que dê resultado visível em poucas semanas. Refaça o diagnóstico em 90 dias.');
+  return L.join('\n');
+}
+
+render();
+</script>
+
+</body></html>
