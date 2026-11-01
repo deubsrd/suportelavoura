@@ -626,3 +626,19 @@
   border-radius: 8px;
   background: rgba(236, 236, 231, .08);
 }
+
+/* ── Contador acima do card do diagnóstico (/albuquerque) ───── */
+.g4-counter {
+  margin: 0 0 2px;
+  text-align: center;
+  font-size: .72rem;
+  letter-spacing: .02em;
+  color: rgba(236, 236, 231, .7);
+  opacity: 0;
+  animation: rise-in .55s ease .1s forwards;
+}
+.g4-counter b {
+  color: #ececE7;
+  font-size: .8rem;
+  font-variant-numeric: tabular-nums;
+}

@@ -71,8 +71,6 @@ section .wrap{padding-block:56px}
 .note-card h3{font-size:19px;color:var(--orange);margin-bottom:8px}
 
 /* resumos */
-.counter{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:30px;padding:6px 14px;font-weight:800;font-size:14px;margin:0 0 22px;color:var(--mist)}
-.counter b{color:var(--orange);font-size:16px;font-variant-numeric:tabular-nums}
 .docs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .doc{background:var(--green);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0;border:1px solid var(--line)}
 .doc img{width:100%;max-width:100%;aspect-ratio:210/297;object-fit:cover;border-radius:8px;border:2px solid rgba(255,255,255,.8);transition:transform .25s}
@@ -246,7 +244,6 @@ section .wrap{padding-block:56px}
     <div class="kicker">Resumos em PDF</div>
     <h2 style="margin-top:6px">Os três dias e os insights</h2>
     <p class="sub">Cada resumo é organizado por assunto, com diagramas para memorizar e as fontes para se aprofundar.</p>
-    <p class="counter"><b id="g4cnt">105</b> pessoas já receberam os resumos</p>
     <div class="docs">
       <div class="doc"><img src="p1.jpg" alt="Capa do resumo do Dia 1"><h3>Dia 1</h3><p>Marketing, vendas e oferta, gargalos por fase, Kit Empresarial, liderança e cultura.</p><div class="meta">PDF · 22 páginas</div><div class="actions"><button class="btn primary small dl" data-file="G4_Valley_2026_Dia1_Lavoura.pdf" type="button">Baixar</button><a class="btn ghost small" href="G4_Valley_2026_Dia1_Lavoura.pdf" target="_blank" rel="noopener">Abrir</a></div><div class="status" role="status"></div></div>
       <div class="doc"><img src="d2p1.jpg" alt="Capa do resumo do Dia 2"><h3>Dia 2</h3><p>Conteúdo do fundador (os 12 passos), cultura, partnership e IA, e o papel do fundador na estratégia.</p><div class="meta">PDF · 11 páginas</div><div class="actions"><button class="btn primary small dl" data-file="G4_Valley_2026_Dia2_Lavoura.pdf" type="button">Baixar</button><a class="btn ghost small" href="G4_Valley_2026_Dia2_Lavoura.pdf" target="_blank" rel="noopener">Abrir</a></div><div class="status" role="status"></div></div>
@@ -543,35 +540,6 @@ function planText(sc,avg,lv,gaps,stage,sector){
 }
 
 render();
-
-/* ---------- contador e registro de acessos ---------- */
-(function(){
-  const BASE=105;
-  const API='https://wxsvazhtowstnhkdlqcn.supabase.co/rest/v1';
-  const KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind4c3Zhemh0b3dzdG5oa2RscWNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5ODAwNjcsImV4cCI6MjA5MjU1NjA2N30.PF0LXlMnyWdVgxnsMR3t47oheCwli2y1qiKreEA6vXc';
-  const H={apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'};
-  const el=document.getElementById('g4cnt');
-  let real=0;
-  const show=()=>{ if(el) el.textContent=(BASE+real).toLocaleString('pt-BR'); };
-  show();
-  fetch(API+'/rpc/g4_download_count',{method:'POST',headers:H,body:'{}'})
-    .then(r=>r.ok?r.json():null)
-    .then(n=>{ if(typeof n==='number'){ real=n; show(); } })
-    .catch(()=>{});
-  // conta 1 vez por navegador para cada tipo, para o número representar pessoas
-  const once=(kind,file)=>{
-    const k='g4_counted_'+kind;
-    try{ if(localStorage.getItem(k)) return; localStorage.setItem(k,'1'); }catch(_){}
-    fetch(API+'/g4_events',{method:'POST',headers:{...H,Prefer:'return=minimal'},body:JSON.stringify({kind,file:file||null}),keepalive:true})
-      .then(r=>{ if(r.ok && kind==='download'){ real+=1; show(); } })
-      .catch(()=>{});
-  };
-  document.querySelectorAll('.doc .actions .btn').forEach(b=>{
-    b.addEventListener('click',()=>once('download', b.dataset.file||b.getAttribute('href')));
-  });
-  const quiz=document.getElementById('quiz');
-  new MutationObserver(()=>{ if(quiz.querySelector('.ring')) once('diagnostico'); }).observe(quiz,{childList:true,subtree:true});
-})();
 </script>
 
 </body></html>

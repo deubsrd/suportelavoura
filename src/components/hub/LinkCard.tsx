@@ -9,6 +9,7 @@ export type LinkItem = {
   href: string;
   icon: "franchise" | "map" | "support" | "delivery" | "insight" | "chat";
   internal?: boolean;        // abre na mesma aba (página do próprio site)
+  onClick?: () => void;      // ação extra ao clicar (ex.: registrar clique)
   highlight?: boolean;       // destaque visual (botão laranja)
   disabled?: boolean;        // exibe badge "Em breve"
   badge?: string;            // texto do badge opcional
@@ -67,7 +68,10 @@ export function LinkCard({ link, index }: { link: LinkItem; index: number }) {
       rel={link.internal ? undefined : "noopener noreferrer"}
       className={cardClass}
       style={style}
-      onClick={() => trackLinkClick(link.trackingId, link.label)}
+      onClick={() => {
+        trackLinkClick(link.trackingId, link.label);
+        link.onClick?.();
+      }}
       whileHover={{ scale: 1.035, y: -2 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 340, damping: 20 }}

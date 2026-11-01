@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 import { LinkCard, type LinkItem } from "@/components/hub/LinkCard";
 import { GuideCard } from "@/components/hub/GuideCard";
+import { useG4Clicks } from "@/hooks/use-g4-clicks";
 import { FRANCHISE_HREF } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
@@ -38,6 +39,8 @@ const whatsappLink: LinkItem = {
 
 /* ── Página do perfil pessoal (bio do Instagram) ───────────── */
 export default function Deubson() {
+  const { count, registerClick } = useG4Clicks();
+
   useEffect(() => {
     trackPageView();
     const previous = document.title;
@@ -81,8 +84,15 @@ export default function Deubson() {
       </div>
 
       <div className="links-section">
+        <p className="g4-counter">
+          <b>{count.toLocaleString("pt-BR")}</b> pessoas já receberam os resumos
+        </p>
         {personalLinks.map((link, i) => (
-          <LinkCard key={link.trackingId} link={link} index={i} />
+          <LinkCard
+            key={link.trackingId}
+            link={link.trackingId === "deubson_diagnostico_g4" ? { ...link, onClick: registerClick } : link}
+            index={i}
+          />
         ))}
         <GuideCard index={personalLinks.length} />
         <LinkCard link={whatsappLink} index={personalLinks.length + 1} />
