@@ -47,6 +47,15 @@ export default function Deubson() {
   return (
     <div className="page-root page-root-personal">
       <div className="personal-hero">
+        <img
+          className="personal-photo"
+          src="/lovable-uploads/albuquerque-g4-valley.jpg"
+          alt="Deubson Albuquerque no G4 Valley 2026"
+          width={1280}
+          height={854}
+        />
+        <div className="personal-photo-veil" aria-hidden="true" />
+        <div className="personal-hero-text">
         <motion.p
           className="personal-eyebrow"
           initial={{ opacity: 0 }}
@@ -67,6 +76,7 @@ export default function Deubson() {
             Albuquerque<span className="personal-dot">.</span>
           </span>
         </motion.h1>
+        </div>
       </div>
 
       <div className="links-section">
