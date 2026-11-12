@@ -12,6 +12,8 @@ import Index from "./pages/Index.tsx";
 import UnitPage from "./pages/UnitPage.tsx";
 import Franquia from "./pages/Franquia.tsx";
 import Deubson from "./pages/Deubson.tsx";
+import PersonPage from "./pages/PersonPage.tsx";
+import { gabriel, mateus } from "./data/people.config";
 import NotFound from "./pages/NotFound.tsx";
 import { units } from "./data/units.config";
 
@@ -27,6 +29,8 @@ const App = () => (
         ))}
         <Route path="/franquia" element={<Franquia />} />
         <Route path="/albuquerque" element={<Deubson />} />
+        <Route path="/gabriel" element={<PersonPage person={gabriel} />} />
+        <Route path="/mateus" element={<PersonPage person={mateus} />} />
         {/* ADICIONE NOVAS ROTAS ACIMA DESTA LINHA */}
         <Route path="*" element={<NotFound />} />
       </Routes>

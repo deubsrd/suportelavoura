@@ -516,6 +516,16 @@
   -webkit-text-stroke: 2px #ececE7;
 }
 .personal-dot { color: #e17c4c; -webkit-text-stroke: 2px #e17c4c; }
+/* Sem foto (perfis da rede ainda sem foto): topo mais baixo, com o mesmo verde-noite. */
+.personal-hero-nophoto {
+  height: auto;
+  min-height: 300px;
+  padding-top: 4.5rem;
+  justify-content: center;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(57, 79, 62, .55) 0%, rgba(26, 36, 32, 0) 70%),
+    #1a2420;
+}
 
 .page-root-personal .link-card-v2 { border-radius: 10px; }
 .page-root-personal .link-card-default {

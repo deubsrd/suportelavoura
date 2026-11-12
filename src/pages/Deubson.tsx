@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { LinkCard, type LinkItem } from "@/components/hub/LinkCard";
 import { GuideCard } from "@/components/hub/GuideCard";
 import { useG4Clicks } from "@/hooks/use-g4-clicks";
-import { FRANCHISE_HREF } from "@/data/units.config";
+import { franchiseHrefFor } from "@/data/units.config";
 import { trackPageView } from "@/data/analytics";
 
 const G4_DIAGNOSTICO_HREF = "/g4-valley/index.html";
@@ -23,7 +23,7 @@ const personalLinks: LinkItem[] = [
   {
     label: "Seja um Franqueado",
     description: "Abra a sua lavanderia de autosserviço Lavoura",
-    href: FRANCHISE_HREF,
+    href: franchiseHrefFor("deubson"),
     icon: "franchise",
     trackingId: "deubson_franqueado",
   },
