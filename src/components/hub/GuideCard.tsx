@@ -11,7 +11,17 @@ import {
 } from "@/data/guide.config";
 
 /** Card expansível: mini guia da franquia + formulário de interesse. */
-export function GuideCard({ index }: { index: number }) {
+export function GuideCard({
+  index,
+  trackingId = "deubson_guia_lead",
+  source = "instagram-deubson",
+}: {
+  index: number;
+  /** Evento de analytics do envio do formulário. */
+  trackingId?: string;
+  /** Origem gravada no lead (coluna form_name da planilha). */
+  source?: string;
+}) {
   const [open, setOpen] = useState(false);
   const style = {
     animationDelay: `${0.18 + index * 0.09}s`,
@@ -63,7 +73,7 @@ export function GuideCard({ index }: { index: number }) {
               <p className="guide-disclaimer">{GUIDE_DISCLAIMER}</p>
 
               <h3 className="guide-form-title">Receba as condições completas</h3>
-              <LeadForm trackingId="deubson_guia_lead" source="instagram-deubson" />
+              <LeadForm trackingId={trackingId} source={source} />
             </div>
           </motion.div>
         )}

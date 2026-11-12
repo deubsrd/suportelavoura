@@ -18,6 +18,10 @@ export type Unit = {
 
 export const FRANCHISE_HREF = "https://www.lavanderialavoura.com.br/";
 
+/** Link do site da franquia com a origem do perfil (lida pelo site e enviada junto com o lead). */
+export const franchiseHrefFor = (perfil: string) =>
+  `${FRANCHISE_HREF}?utm_source=instagram&utm_medium=bio&utm_campaign=rede&utm_content=${perfil}`;
+
 export const units: Unit[] = [
   {
     slug: "liberdade",
